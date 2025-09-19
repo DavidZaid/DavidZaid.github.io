@@ -2,159 +2,104 @@
 <html lang="es">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Portafolio — David Zaid</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portafolio — Juan David DR</title>
+
   <style>
-    /* RESET ligero */
+    /* Reset y variables */
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    :root{
-      --accent:#0b4a6f;
-      --muted:#6b7280;
-      --bg:#f7fafc;
-      --card:#ffffff;
-      --radius:12px;
-      --maxw:1000px;
-      --gap:18px;
-      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    :root {
+      --accent: #0b5a78;
+      --muted: #59606a;
+      --card: #ffffff;
+      --bg: #f6f9fb;
+      --radius: 10px;
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    }
+    body {
+      background: var(--bg);
+      color: #0b1720;
+      padding: 24px;
+      display: flex;
+      justify-content: center;
     }
 
-    body{
-      background: linear-gradient(180deg, #fbfdff, #f2f6f9);
-      color:#111827;
-      padding:28px;
-      display:flex;
-      justify-content:center;
+    .wrap {
+      width: 100%;
+      max-width: 1000px;
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 20px;
     }
 
-    .container{
-      width:100%;
-      max-width:var(--maxw);
-      margin:0 auto;
-      display:grid;
-      grid-template-columns: 320px 1fr;
-      gap:var(--gap);
-      align-items:start;
+    /* Tarjeta lateral */
+    .card {
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 18px;
+      box-shadow: 0 6px 18px rgba(11,74,120,0.08);
     }
 
-    /* SIDEBAR */
-    .card{
-      background:var(--card);
-      border-radius:var(--radius);
-      padding:18px;
-      box-shadow:0 6px 18px rgba(9,30,63,0.06);
+    .avatar {
+      width: 120px;
+      height: 120px;
+      border-radius: 999px;
+      overflow: hidden;
+      margin: 0 auto 12px;
+      display: block;
     }
+    .name { text-align:center; color:var(--accent); font-weight:700; font-size:20px; margin-bottom:6px; }
+    .role { text-align:center; color:var(--muted); font-size:13px; margin-bottom:12px; }
 
-    .avatar{
-      width:120px;height:120px;border-radius:999px;overflow:hidden;margin:0 auto 12px;
-      display:block;border:6px solid #fff; box-shadow:0 6px 18px rgba(11,74,111,0.12);
-    }
-    .name{ text-align:center; font-size:22px; font-weight:700; color:var(--accent); margin-bottom:6px; }
-    .role{ text-align:center; color:var(--muted); font-size:13px; margin-bottom:12px; }
+    .contact-list { list-style:none; margin-top:10px; color:var(--muted); font-size:14px; }
+    .contact-list li { margin-bottom:8px; }
 
-    .contact-list{ list-style:none; margin-top:8px; gap:8px; display:flex; flex-direction:column; }
-    .contact-list li{ display:flex; gap:10px; align-items:center; color:var(--muted); font-size:14px; }
-    .pill{ display:inline-block; background:var(--accent); color:#fff; padding:6px 10px; border-radius:999px; font-weight:600; font-size:12px; }
+    .skill-list { margin-top:12px; color:var(--muted); font-size:14px; line-height:1.6; }
 
-    /* MAIN */
-    main{ display:flex; flex-direction:column; gap:var(--gap); }
-    header.hero{ display:flex; justify-content:space-between; align-items:center; gap:16px; }
-    .hero-left h1{ font-size:28px; color:#0b3a52; margin-bottom:6px; }
-    .hero-left p{ color:var(--muted); font-size:14px; max-width:720px; }
+    /* Main */
+    main { display:flex; flex-direction:column; gap:18px; }
+    header.hero { padding:18px; display:flex; justify-content:space-between; gap:12px; align-items:flex-start; }
+    .hero-left h1 { font-size:26px; color:#073645; margin-bottom:6px; }
+    .hero-left p { color:var(--muted); font-size:14px; max-width:720px; }
 
-    section h2{ font-size:18px; color:var(--accent); margin-bottom:8px; }
-    .projects{ display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:14px; }
-    .project-card{ background:var(--card); border-radius:10px; padding:12px; box-shadow:0 6px 14px rgba(9,30,63,0.04); }
-    .project-card a{ color:var(--accent); font-weight:600; text-decoration:none; }
-    .project-card p{ color:var(--muted); font-size:13px; margin-top:6px; }
+    section h2 { font-size:16px; color:var(--accent); margin-bottom:10px; }
+    .projects { display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap:12px; }
+    .project { background: #fff; padding:12px; border-radius:8px; box-shadow:0 6px 14px rgba(11,74,120,0.04); }
+    .project a { color:var(--accent); font-weight:600; text-decoration:none; }
 
-    /* galería */
-    .gallery{ display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:12px; }
-    .thumb{ background:#fff; border-radius:8px; overflow:hidden; box-shadow:0 8px 18px rgba(9,30,63,0.05); }
-    .thumb img{ width:100%; height:160px; object-fit:cover; display:block; }
+    .gallery { display:grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap:10px; }
+    .thumb { background:#fff; border-radius:8px; overflow:hidden; box-shadow:0 6px 14px rgba(11,74,120,0.04); }
+    .thumb img { width:100%; height:140px; object-fit:cover; display:block; }
 
-    footer{ margin-top:6px; color:var(--muted); font-size:13px; }
+    footer.small { color:var(--muted); font-size:13px; margin-top:8px; }
 
-    /* responsive */
-    @media (max-width:900px){
-      .container{ grid-template-columns: 1fr; padding:6px; }
-      .avatar{ margin-bottom:10px; }
-      header.hero{ flex-direction:column; align-items:flex-start; gap:8px; }
+    /* Responsive */
+    @media (max-width:900px) {
+      .wrap { grid-template-columns: 1fr; padding: 8px; }
+      header.hero { flex-direction:column; }
     }
   </style>
 </head>
 <body>
-  <div class="container">
+  <div class="wrap">
     <!-- SIDEBAR -->
     <aside class="card">
-      <!-- cambia la ruta de la img por tu foto si quieres -->
-      <img class="avatar" src="https://avatars.githubusercontent.com/u/1?v=4" alt="foto de perfil">
-      <div class="name">David Zaid</div>
+      <!-- Cambia este src por la ruta de tu foto si subes una a images/ -->
+      <img class="avatar" src="https://avatars.githubusercontent.com/u/1?v=4" alt="Foto de perfil">
+      <div class="name">Juan David DR</div>
       <div class="role">Estudiante de Economía · Tecnólogo en Desarrollo de Software</div>
 
       <div style="margin-top:12px;">
-        <div class="pill">Contacto</div>
-        <ul class="contact-list" style="margin-top:10px;">
-          <li>📧 diazrodriguezjuandavi21@gmail.com</li>
+        <div style="font-weight:700; color:var(--accent); margin-bottom:8px;">Contacto</div>
+        <ul class="contact-list">
+          <li>📧 diazrodriguezuandavi21@gmail.com</li>
           <li>📱 +57 302 471 7799</li>
           <li>📍 Cajicá, Cundinamarca</li>
-          <li>🌐 <a href="https://github.com/DavidZaid" target="_blank">github.com/DavidZaid</a></li>
-          <li>📂 <a href="https://davidzaid.github.io" target="_blank">Portafolio</a></li>
+          <li>🔗 <a href="https://github.com/DavidZaid" target="_blank">github.com/DavidZaid</a></li>
         </ul>
       </div>
 
-      <div style="margin-top:16px;">
-        <div class="pill">Habilidades</div>
-        <ul style="margin-top:10px; color:var(--muted); font-size:14px; line-height:1.6;">
-          <li>HTML · CSS · JavaScript</li>
-          <li>Node.js · React · Liquid (Shopify)</li>
-          <li>MySQL · MongoDB</li>
-          <li>Google Apps · Git</li>
-        </ul>
-      </div>
-    </aside>
-
-    <!-- MAIN -->
-    <main>
-      <header class="hero card" style="padding:18px;">
-        <div class="hero-left">
-          <h1>Hola — Soy David</h1>
-          <p>Estudiante de Economía (Universidad Militar Nueva Granada) y Tecnólogo en Análisis y Desarrollo de Software (SENA). Exploro desarrollo web, e-commerce y backends con Node.js. Aquí muestro algunos proyectos y capturas.</p>
-        </div>
-        <div style="display:flex;flex-direction:column;gap:8px;align-items:flex-end;">
-          <a class="pill" href="mailto:diazrodriguezuandavi21@gmail.com">Enviar correo</a>
-          <a style="text-decoration:none;color:var(--accent);font-weight:600;font-size:14px;" href="/CV-DavidZaid.pdf" target="_blank">Descargar CV (opcional)</a>
-        </div>
-      </header>
-
-      <section class="card" id="proyectos">
-        <h2>Proyectos</h2>
-        <div class="projects">
-          <article class="project-card">
-            <a href="https://github.com/DavidZaid/LogiPlanner" target="_blank">LogiPlanner</a>
-            <p>Sistema de gestión de inventarios y rutas. Backend en Node.js, DB en MongoDB. API REST y panel admin.</p>
-          </article>
-
-          <article class="project-card">
-            <a href="https://github.com/DavidZaid/Plantilla-web" target="_blank">Plantilla Web / Tienda</a>
-            <p>Template responsive y demo de tienda. HTML, CSS y JavaScript. Ejemplo de integración con Shopify (Liquid).</p>
-          </article>
-
-          <!-- Agrega más project-card si quieres -->
-        </div>
-      </section>
-
-      <section class="card" id="galeria">
-        <h2>Galería</h2>
-        <div class="gallery">
-          <!-- SUBE a tu repo la carpeta images/ y cambia los nombres -->
-          <div class="thumb"><img src="images/proyecto1.png" alt="Proyecto 1"></div>
-          <div class="thumb"><img src="images/proyecto2.png" alt="Proyecto 2"></div>
-          <div class="thumb"><img src="images/proyecto3.png" alt="Proyecto 3"></div>
-          <div class="thumb"><img src="images/proyecto4.png" alt="Proyecto 4"></div>
-        </div>
-        <footer style="margin-top:12px;">Si quieres ver más, visita mi <a href="https://github.com/DavidZaid" target="_blank">GitHub</a>.</footer>
-      </section>
-    </main>
-  </div>
-</body>
-</html>
+      <div style="margin-top:14px;">
+        <div style="font-weight:700; color:var(--accent); margin-bottom:8px;">Habilidades</div>
+        <ul class="skill-list">
+          <li
