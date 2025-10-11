@@ -1,481 +1,341 @@
- <!DOCTYPE html>
-
+<!DOCTYPE html>
 <html lang="es">
-
 <head>
-
-  <meta charset="utf-8" />
-
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <title>Portafolio — Juan David DR</title>
-
-
-
-  <style>
-
-    /* RESET ligero */
-
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root{
-
-      --accent:#0b5a78;
-
-      --muted:#6b7280;
-
-      --bg:#f4f8fa;
-
-      --card:#ffffff;
-
-      --radius:12px;
-
-      --maxw:1100px;
-
-      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-
-    }
-
-    body{
-
-      background:var(--bg);
-
-      color:#0b1720;
-
-      padding:28px;
-
-      display:flex;
-
-      justify-content:center;
-
-    }
-
-
-
-    .container{
-
-      width:100%;
-
-      max-width:var(--maxw);
-
-      display:grid;
-
-      grid-template-columns: 320px 1fr;
-
-      gap:22px;
-
-      align-items:start;
-
-    }
-
-
-
-    /* tarjeta */
-
-    .card{
-
-      background:var(--card);
-
-      border-radius:var(--radius);
-
-      padding:18px;
-
-      box-shadow:0 8px 24px rgba(11,74,120,0.06);
-
-    }
-
-
-
-    /* SIDEBAR */
-
-    .avatar{
-
-      width:120px;height:120px;border-radius:999px;overflow:hidden;margin:0 auto 12px;
-
-      display:block;border:6px solid #fff; box-shadow:0 8px 20px rgba(11,74,120,0.10);
-
-      background:linear-gradient(180deg,#fff,#eef6fa);
-
-      object-fit:cover;
-
-    }
-
-    .name{ text-align:center; font-size:20px; font-weight:700; color:var(--accent); margin-bottom:6px; }
-
-    .role{ text-align:center; color:var(--muted); font-size:13px; margin-bottom:10px; }
-
-
-
-    .section-title { color:var(--accent); font-weight:700; margin-bottom:8px; font-size:14px; }
-
-    .contact-list{ list-style:none; margin-top:8px; gap:8px; display:flex; flex-direction:column; color:var(--muted); font-size:14px; }
-
-    .contact-list a{ color:var(--accent); text-decoration:none; }
-
-
-
-    /* MAIN */
-
-    main{ display:flex; flex-direction:column; gap:18px; }
-
-    header.hero{ display:flex; justify-content:space-between; align-items:center; gap:16px; }
-
-    .hero-left h1{ font-size:26px; color:#073645; margin-bottom:8px; }
-
-    .hero-left p{ color:var(--muted); font-size:14px; line-height:1.45; max-width:800px; }
-
-
-
-    .cta {
-
-      display:flex;
-
-      flex-direction:column;
-
-      gap:8px;
-
-      align-items:flex-end;
-
-    }
-
-    .btn {
-
-      background:var(--accent);
-
-      color:#fff;
-
-      padding:10px 14px;
-
-      border-radius:999px;
-
-      font-weight:700;
-
-      text-decoration:none;
-
-      display:inline-block;
-
-    }
-
-    .link-plain { color:var(--accent); text-decoration:none; font-weight:600; }
-
-
-
-    /* Proyectos */
-
-    .projects{ display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:14px; }
-
-    .project-card{ background:var(--card); border-radius:10px; padding:12px; box-shadow:0 6px 18px rgba(11,74,120,0.04); }
-
-    .project-card a{ color:var(--accent); font-weight:700; text-decoration:none; }
-
-    .project-card p{ color:var(--muted); font-size:13px; margin-top:8px; }
-
-
-
-    /* galería */
-
-    .gallery{ display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:14px; }
-
-    .thumb{
-
-      background: linear-gradient(180deg,#fff,#fbfdff);
-
-      border-radius:10px;
-
-      min-height:140px;
-
-      display:flex;
-
-      align-items:center;
-
-      justify-content:center;
-
-      position:relative;
-
-      overflow:hidden;
-
-      box-shadow:0 10px 20px rgba(11,74,120,0.04);
-
-    }
-
-    .thumb img{ width:100%; height:160px; object-fit:cover; display:block; }
-
-    .thumb-label{
-
-      position:absolute;
-
-      inset:0;
-
-      display:flex;
-
-      align-items:center;
-
-      justify-content:center;
-
-      color:var(--muted);
-
-      font-weight:700;
-
-      font-size:14px;
-
-      background:linear-gradient(0deg, rgba(255,255,255,0.75), rgba(255,255,255,0.75));
-
-    }
-
-
-
-    footer.note{ color:var(--muted); font-size:13px; margin-top:6px; }
-
-
-
-    /* responsive */
-
-    @media (max-width:900px){
-
-      .container{ grid-template-columns: 1fr; padding:6px; }
-
-      header.hero{ flex-direction:column; align-items:flex-start; }
-
-      .cta{ align-items:flex-start; }
-
-    }
-
-  </style>
-
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Portafolio — Juan David DR</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+
+    <style>
+        /* RESET ligero */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        :root{
+            --accent:#073645; /* Azul Oscuro (Títulos, enlaces) */
+            --primary-btn:#1a73e8; /* Azul más vibrante (Botón principal) */
+            --muted:#6b7280;
+            --bg:#f8f9fa;
+            --card:#ffffff;
+            --radius:10px;
+            --maxw:1200px;
+            font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+        }
+        body{
+            background:var(--bg);
+            color:#212529;
+            padding:32px 16px;
+            display:flex;
+            justify-content:center;
+        }
+
+        .container{
+            width:100%;
+            max-width:var(--maxw);
+            display:grid;
+            grid-template-columns: 300px 1fr; /* Soluciona el descuadre del sidebar */
+            gap:24px;
+            align-items:start;
+        }
+
+        /* Tarjeta */
+        .card{
+            background:var(--card);
+            border-radius:var(--radius);
+            padding:24px;
+            box-shadow:0 4px 12px rgba(0,0,0,0.05);
+            border: 1px solid #e9ecef;
+        }
+
+        /* SIDEBAR (Avatar y Contacto) */
+        .avatar-container{
+            width:120px;height:120px;border-radius:999px;overflow:hidden;margin:0 auto 16px;
+            display:flex; align-items:center; justify-content:center;
+            border:4px solid #fff;
+            box-shadow:0 6px 16px rgba(11,74,120,0.10);
+            background:linear-gradient(180deg,#fff,#eef6fa);
+            position: relative;
+        }
+        .avatar-img{ width:100%; height:100%; object-fit:cover; display:block; }
+        .avatar-placeholder-icon{
+            font-size:3rem; color:var(--muted); font-weight:700;
+            position: absolute; display: none;
+        }
+        .name{ text-align:center; font-size:24px; font-weight:800; color:var(--accent); margin-bottom:4px; }
+        .role{ text-align:center; color:var(--muted); font-size:14px; margin-bottom:18px; line-height:1.4;}
+
+        .section-title {
+            color:var(--accent); font-weight:700; margin-bottom:12px; font-size:16px;
+            border-bottom: 2px solid #e9ecef; padding-bottom: 6px;
+        }
+        .contact-list{ list-style:none; margin-top:8px; gap:12px; display:flex; flex-direction:column; color:var(--muted); font-size:15px; padding-left: 0;}
+        .contact-list a{ color:var(--accent); text-decoration:none; font-weight:600; transition:color 0.2s; }
+        .contact-list a:hover{ color:#0b5a78; }
+        .contact-list li { display: flex; align-items: center; }
+        .contact-list i { margin-right: 10px; color: var(--accent); font-size: 16px; }
+
+        .skill-list{ list-style:none; color:#495057; font-size:15px; line-height:1.8; padding-left: 0; margin-top: 10px; }
+        .skill-list li { margin-bottom: 4px; display: flex; align-items: center;}
+        .skill-list i { margin-right: 8px; color: var(--accent); }
+
+        /* MAIN (Hero y Proyectos) */
+        main{ display:flex; flex-direction:column; gap:24px; }
+        header.hero{
+            display:flex; justify-content:space-between; align-items:flex-start; gap:20px;
+        }
+        .hero-left h1{ font-size:32px; color:var(--accent); margin-bottom:10px; font-weight:800; }
+        .hero-left p{ color:#495057; font-size:16px; line-height:1.55; max-width:900px; }
+
+        .cta {
+            display:flex;
+            flex-direction:column;
+            gap:10px;
+            align-items:flex-end;
+            flex-shrink: 0;
+            min-width: 180px;
+        }
+        /* Color de Botón Arreglado */
+        .btn {
+            background:var(--primary-btn); /* **¡Color de botón corregido!** */
+            color:#fff;
+            padding:12px 20px;
+            border-radius:999px;
+            font-weight:700;
+            text-decoration:none;
+            display:inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition:background 0.2s, transform 0.1s;
+            width: 100%;
+        }
+        .btn:hover{ background:#1558b0; }
+        .btn:active{ transform: translateY(1px); }
+        .btn i { margin-right: 8px; }
+
+        .link-plain {
+            color:var(--accent);
+            text-decoration:none;
+            font-weight:600;
+            font-size:14px;
+            transition:color 0.2s;
+            display:inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        }
+        .link-plain:hover { color:#0b5a78; text-decoration:underline; }
+        .link-plain i { margin-right: 5px; }
+
+        /* Proyectos */
+        .projects{ display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:18px; }
+        .project-card{
+            background:#f8f9fa;
+            border-radius:var(--radius);
+            padding:18px;
+            border: 1px solid #e9ecef;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .project-card:hover{
+            transform: translateY(-3px);
+            box-shadow:0 12px 20px rgba(11,74,120,0.08);
+        }
+        .project-card a{
+            color:var(--accent);
+            font-size:18px;
+            font-weight:700;
+            text-decoration:none;
+            display:block;
+            margin-bottom:6px;
+            transition:color 0.2s;
+        }
+        .project-card a:hover { text-decoration:underline; }
+        .project-card p{ color:var(--muted); font-size:14px; line-height:1.5; }
+
+        /* Galería */
+        .gallery{ display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:20px; }
+        .thumb{
+            background: #e9ecef;
+            border-radius:var(--radius);
+            height:180px;
+            display:flex; align-items:center; justify-content:center;
+            position:relative; overflow:hidden;
+            box-shadow:0 8px 16px rgba(11,74,120,0.08);
+            cursor:pointer; transition: transform 0.2s, box-shadow 0.2s;
+            text-decoration: none;
+        }
+        .thumb:hover{ transform: scale(1.03); box-shadow:0 16px 30px rgba(11,74,120,0.12); }
+        .thumb img{ width:100%; height:100%; object-fit:cover; display:block; position: absolute; top: 0; left: 0; }
+        .thumb-label{
+            position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
+            color:var(--accent); font-weight:800; font-size:16px;
+            background:rgba(255,255,255,0.85); z-index: 1; transition: opacity 0.3s;
+        }
+        .thumb-img-loaded .thumb-label { opacity: 0; pointer-events: none; }
+        .thumb-img-failed .thumb-label { opacity: 1; }
+
+
+        footer.note{
+            color:var(--muted); font-size:12px; margin-top:20px;
+            padding-top:10px; border-top: 1px dashed #ced4da; line-height:1.5;
+        }
+        footer.note a { color: var(--accent); font-weight: 600; text-decoration: none; }
+
+        /* Responsive */
+        @media (max-width:900px){
+            body{ padding: 16px; }
+            .container{ grid-template-columns: 1fr; gap: 16px; }
+            header.hero{ flex-direction:column; align-items:flex-start; }
+            .cta{ align-items:flex-start; width: 100%; margin-top: 12px; }
+            .btn, .link-plain { width: 100%; text-align: center; }
+        }
+    </style>
 </head>
-
 <body>
-
-  <div class="container">
-
-    <!-- SIDEBAR -->
-
-    <aside class="card" aria-label="Información personal">
-
-      <!-- Subir la foto a /images/foto_JDDR_formal.jfif y usar ese nombre -->
-
-      <img class="avatar" id="avatarImg" src="images/foto_JDDR_formal.jfif" alt="Foto formal Juan David DR">
-
-      <div class="name">Juan David DR</div>
-
-      <div class="role">Estudiante de Economía · Tecnólogo en Desarrollo de Software</div>
-
-
-
-      <div style="margin-top:12px;">
-
-        <div class="section-title">Contacto</div>
-
-        <ul class="contact-list">
-
-          <li>📧 <a href="mailto:diazrodriguezuandavi21@gmail.com">diazrodriguezuandavi21@gmail.com</a></li>
-
-          <li>📱 +57 302 471 7799</li>
-
-          <li>📍 Cajicá, Cundinamarca</li>
-
-          <li>🔗 <a href="https://github.com/DavidZaid" target="_blank" rel="noopener">github.com/DavidZaid</a></li>
-
-        </ul>
-
-      </div>
-
-
-
-      <div style="margin-top:14px;">
-
-        <div class="section-title">Habilidades</div>
-
-        <ul style="color:var(--muted); font-size:14px; line-height:1.6;">
-
-          <li>HTML · CSS · JavaScript</li>
-
-          <li>Node.js · React · Liquid (Shopify)</li>
-
-          <li>MySQL · MongoDB · Git</li>
-
-          <li>Google Apps</li>
-
-        </ul>
-
-      </div>
-
-    </aside>
-
-
-
-    <!-- MAIN -->
-
-    <main>
-
-      <header class="card hero" role="banner">
-
-        <div class="hero-left">
-
-          <h1>Hola, soy Juan David</h1>
-
-          <p>Estudiante de Economía (Universidad Militar Nueva Granada) y Tecnólogo en Análisis y Desarrollo de Software (SENA). Me enfoco en desarrollo web y soluciones para tiendas en línea. Aquí muestro proyectos, capturas y enlaces a mi trabajo.</p>
-
-        </div>
-
-
-
-        <div class="cta">
-
-          <a class="btn" href="mailto:diazrodriguezuandavi21@gmail.com">Enviar correo</a>
-
-          <a class="link-plain" href="CV-JuanDavidDR.pdf" target="_blank" rel="noopener">Descargar CV (opcional)</a>
-
-        </div>
-
-      </header>
-
-
-
-      <section class="card" id="proyectos">
-
-        <div class="section-title">Proyectos</div>
-
-        <div class="projects" aria-live="polite">
-
-          <article class="project-card">
-
-            <a href="https://github.com/DavidZaid/LogiPlanner" target="_blank" rel="noopener">LogiPlanner</a>
-
-            <p>Sistema de gestión de inventarios y rutas. Backend con Node.js, base de datos MongoDB y API REST.</p>
-
-          </article>
-
-
-
-          <article class="project-card">
-
-            <a href="https://github.com/DavidZaid/Plantilla-web" target="_blank" rel="noopener">Plantilla Web / Tienda</a>
-
-            <p>Template responsive con ejemplo de integración para tiendas (HTML, CSS, JS y Liquid).</p>
-
-          </article>
-
-        </div>
-
-      </section>
-
-
-
-      <section class="card" id="galeria">
-
-        <div class="section-title">Galería</div>
-
-        <div class="gallery" id="gallery">
-
-          <!-- Sube tus capturas a /images/ y cámbialas por los nombres reales si difieren -->
-
-          <div class="thumb">
-
-            <img src="images/proyecto1.png" alt="Proyecto 1">
-
-            <div class="thumb-label">Proyecto 1</div>
-
-          </div>
-
-          <div class="thumb">
-
-            <img src="images/proyecto2.png" alt="Proyecto 2">
-
-            <div class="thumb-label">Proyecto 2</div>
-
-          </div>
-
-          <div class="thumb">
-
-            <img src="images/proyecto3.png" alt="Proyecto 3">
-
-            <div class="thumb-label">Proyecto 3</div>
-
-          </div>
-
-          <div class="thumb">
-
-            <img src="images/proyecto4.png" alt="Proyecto 4">
-
-            <div class="thumb-label">Proyecto 4</div>
-
-          </div>
-
-        </div>
-
-
-
-        <div class="note" style="margin-top:12px;">
-
-          <p class="note">Si no ves imágenes, sube los archivos dentro de la carpeta <code>images/</code> con los nombres: <strong>foto_JDDR_formal.jfif</strong>, <strong>proyecto1.png</strong>, <strong>proyecto2.png</strong>, etc. Más proyectos en <a href="https://github.com/DavidZaid" target="_blank" rel="noopener">GitHub</a>.</p>
-
-        </div>
-
-      </section>
-
-    </main>
-
-  </div>
-
-
-
-  <script>
-
-    // Si la imagen carga correctamente, ocultamos la etiqueta; si falla, dejamos la etiqueta visible
-
-    document.addEventListener('DOMContentLoaded', function(){
-
-      // avatar fallback: si no carga, ocultar img y mostrar un placeholder por CSS (queda bonito)
-
-      const avatar = document.getElementById('avatarImg');
-
-      avatar.addEventListener('error', () => {
-
-        avatar.style.display = 'none';
-
-      });
-
-
-
-      // Para cada thumb: si la imagen carga, ocultamos .thumb-label
-
-      const thumbs = document.querySelectorAll('.thumb');
-
-      thumbs.forEach(t => {
-
-        const img = t.querySelector('img');
-
-        const label = t.querySelector('.thumb-label');
-
-        if(!img) return;
-
-        img.addEventListener('load', () => {
-
-          // imagen disponible -> ocultar etiqueta
-
-          label.style.display = 'none';
-
-        });
-
-        img.addEventListener('error', () => {
-
-          // deja la etiqueta visible (evita icono roto)
-
-          label.style.display = 'flex';
-
-        });
-
-        // Si la imagen ya se cargó (cache), evaluar:
-
-        if(img.complete && img.naturalWidth > 0) label.style.display = 'none';
-
-      });
-
-    });
-
-  </script>
-
+    <div class="container">
+        <aside class="card" aria-label="Información personal">
+            <div class="avatar-container">
+                <img class="avatar-img" id="avatarImg" src="images/foto_JDDR_formal.jfif" alt="Foto formal Juan David DR">
+                <div class="avatar-placeholder-icon"><i class="fas fa-user-tie"></i></div>
+            </div>
+            <div class="name">Juan David DR</div>
+            <div class="role">Estudiante de Economía · Tecnólogo en Desarrollo de Software</div>
+
+            <div style="margin-top:20px;">
+                <div class="section-title">Contacto</div>
+                <ul class="contact-list">
+                    <li><i class="fas fa-envelope"></i> <a href="mailto:diazrodriguezuandavi21@gmail.com">diazrodriguezuandavi21@gmail.com</a></li>
+                    <li><i class="fas fa-phone-alt"></i> +57 302 471 7799</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Cajicá, Cundinamarca</li>
+                    <li><i class="fab fa-github"></i> <a href="https://github.com/DavidZaid" target="_blank" rel="noopener">github.com/DavidZaid</a></li>
+                </ul>
+            </div>
+
+            <div style="margin-top:30px;">
+                <div class="section-title">Habilidades</div>
+                <ul class="skill-list">
+                    <li><i class="fas fa-code"></i> Frontend: HTML, CSS, JavaScript, React</li>
+                    <li><i class="fas fa-server"></i> Backend: Node.js, Liquid (Shopify)</li>
+                    <li><i class="fas fa-database"></i> Bases de Datos: MySQL, MongoDB</li>
+                    <li><i class="fas fa-tools"></i> Herramientas: Git, Google Apps</li>
+                </ul>
+            </div>
+        </aside>
+
+        <main>
+            <header class="card hero" role="banner">
+                <div class="hero-left">
+                    <h1>Hola, soy Juan David 👋</h1>
+                    <p>Estudiante de **Economía** (Universidad Militar Nueva Granada) y **Tecnólogo en Análisis y Desarrollo de Software** (SENA). Me especializo en el desarrollo web y la creación de soluciones efectivas para tiendas en línea (e-commerce). Aquí puedes explorar mis proyectos, capturas de trabajo y enlaces a mi código fuente.</p>
+                </div>
+
+                <div class="cta">
+                    <a class="btn" href="mailto:diazrodriguezuandavi21@gmail.com"><i class="fas fa-paper-plane"></i> Contactar Ahora</a>
+                    <a class="link-plain" href="CV-JuanDavidDR.pdf" target="_blank" rel="noopener"><i class="fas fa-file-download"></i> Descargar CV</a>
+                </div>
+            </header>
+
+            <section class="card" id="proyectos">
+                <div class="section-title">Proyectos Destacados</div>
+                <div class="projects" aria-live="polite">
+                    <article class="project-card">
+                        <a href="https://github.com/DavidZaid/LogiPlanner" target="_blank" rel="noopener">LogiPlanner (ERP/Logística)</a>
+                        <p>Sistema completo de gestión de inventarios y optimización de rutas de entrega. Desarrollado con Node.js en el backend, utilizando MongoDB como base de datos y exponiendo una API REST robusta.</p>
+                    </article>
+
+                    <article class="project-card">
+                        <a href="https://github.com/DavidZaid/Plantilla-web" target="_blank" rel="noopener">Plantilla Web para E-commerce</a>
+                        <p>Un template web responsive y moderno, ideal como base para tiendas. Incluye ejemplos de integración con tecnologías frontend (HTML, CSS, JS) y plantillas de Liquid para entornos como Shopify.</p>
+                    </article>
+                </div>
+            </section>
+
+            <section class="card" id="galeria">
+                <div class="section-title">Muestras de Trabajo (Capturas)</div>
+                <div class="gallery" id="gallery">
+                    <a href="images/proyecto1.png" target="_blank" class="thumb" data-project="LogiPlanner">
+                        <img src="images/proyecto1.png" alt="Captura del proyecto LogiPlanner">
+                        <div class="thumb-label">LogiPlanner</div>
+                    </a>
+                    <a href="images/proyecto2.png" target="_blank" class="thumb" data-project="Plantilla Web">
+                        <img src="images/proyecto2.png" alt="Captura del proyecto Plantilla Web">
+                        <div class="thumb-label">Plantilla Web</div>
+                    </a>
+                    <a href="images/proyecto3.png" target="_blank" class="thumb" data-project="Dashboard">
+                        <img src="images/proyecto3.png" alt="Captura del proyecto 3: Dashboard de gestión">
+                        <div class="thumb-label">Dashboard</div>
+                    </a>
+                    <a href="images/proyecto4.png" target="_blank" class="thumb" data-project="E-commerce">
+                        <img src="images/proyecto4.png" alt="Captura del proyecto 4: Vista de E-commerce">
+                        <div class="thumb-label">E-commerce</div>
+                    </a>
+                </div>
+
+                <footer class="note">
+                    <p>
+                        **Recordatorio:** Para que se vea con las imágenes, sube los archivos de imagen a la carpeta <code>images/</code> con los nombres correctos. Más proyectos en <a href="https://github.com/DavidZaid" target="_blank" rel="noopener">GitHub</a>.
+                    </p>
+                </footer>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function(){
+            // --- Avatar (foto de perfil) ---
+            const avatarContainer = document.querySelector('.avatar-container');
+            const avatarImg = document.getElementById('avatarImg');
+            const avatarPlaceholderIcon = avatarContainer.querySelector('.avatar-placeholder-icon');
+
+            const checkAvatarLoadStatus = () => {
+                if (avatarImg.complete) {
+                    if (avatarImg.naturalWidth > 0) {
+                        avatarImg.style.display = 'block';
+                        avatarPlaceholderIcon.style.display = 'none';
+                    } else {
+                        avatarImg.style.display = 'none';
+                        avatarPlaceholderIcon.style.display = 'flex';
+                    }
+                }
+            };
+
+            avatarImg.addEventListener('load', checkAvatarLoadStatus);
+            avatarImg.addEventListener('error', () => {
+                avatarImg.style.display = 'none';
+                avatarPlaceholderIcon.style.display = 'flex';
+            });
+            checkAvatarLoadStatus();
+
+            // --- Galería de proyectos (miniaturas) ---
+            const thumbs = document.querySelectorAll('.thumb');
+            thumbs.forEach(a => {
+                const img = a.querySelector('img');
+                const label = a.querySelector('.thumb-label');
+
+                const checkThumbLoadStatus = () => {
+                    if (img.complete) {
+                        if (img.naturalWidth > 0) {
+                            a.classList.add('thumb-img-loaded');
+                            a.classList.remove('thumb-img-failed');
+                            if (label) label.style.opacity = '0'; // Asegura que se oculte
+                        } else {
+                            a.classList.remove('thumb-img-loaded');
+                            a.classList.add('thumb-img-failed');
+                            if (label) label.style.opacity = '1'; // Asegura que se muestre
+                        }
+                    }
+                };
+
+                img.addEventListener('load', checkThumbLoadStatus);
+                img.addEventListener('error', () => {
+                    a.classList.remove('thumb-img-loaded');
+                    a.classList.add('thumb-img-failed');
+                    if (label) label.style.opacity = '1';
+                });
+                checkThumbLoadStatus();
+            });
+        });
+    </script>
 </body>
-
 </html>
