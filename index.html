@@ -1,1 +1,345 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Portafolio — Juan David DR</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
 
+    <style>
+        /* RESET ligero */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        :root{
+            --accent:#073645; /* Azul Oscuro más serio */
+            --muted:#6b7280;
+            --bg:#f8f9fa; /* Fondo más claro */
+            --card:#ffffff;
+            --radius:10px;
+            --maxw:1200px;
+            /* Se ha cambiado la fuente a 'Inter' que es más moderna y profesional */
+            font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        }
+        body{
+            background:var(--bg);
+            color:#212529; /* Color de texto más oscuro para mejor contraste */
+            padding:32px 16px;
+            display:flex;
+            justify-content:center;
+        }
+
+        .container{
+            width:100%;
+            max-width:var(--maxw);
+            display:grid;
+            grid-template-columns: 300px 1fr; /* Sidebar un poco más estrecho */
+            gap:24px;
+            align-items:start;
+        }
+
+        /* tarjeta */
+        .card{
+            background:var(--card);
+            border-radius:var(--radius);
+            padding:24px; /* Un poco más de padding */
+            /* Sombra más sutil */
+            box-shadow:0 4px 12px rgba(0,0,0,0.05);
+            border: 1px solid #e9ecef; /* Borde muy sutil */
+        }
+
+        /* SIDEBAR */
+        .avatar{
+            width:120px;height:120px;border-radius:999px;overflow:hidden;margin:0 auto 16px;
+            display:block;border:4px solid #fff; /* Borde más sutil */
+            box-shadow:0 6px 16px rgba(11,74,120,0.10);
+            background:linear-gradient(180deg,#fff,#eef6fa);
+            object-fit:cover;
+        }
+        /* Estilo para el placeholder del avatar si no carga la imagen */
+        .avatar:not([src]):not([style*="display: none"]){ /* Si no hay src y no está oculto por JS */
+            background:#f1f3f5;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            font-size:3rem;
+            color:var(--muted);
+            font-weight:700;
+        }
+
+        .name{ text-align:center; font-size:24px; font-weight:800; color:var(--accent); margin-bottom:4px; }
+        .role{ text-align:center; color:var(--muted); font-size:14px; margin-bottom:18px; line-height:1.4;}
+
+        .section-title { color:var(--accent); font-weight:700; margin-bottom:12px; font-size:16px; border-bottom: 2px solid #e9ecef; padding-bottom: 6px; }
+        .contact-list{ list-style:none; margin-top:8px; gap:12px; display:flex; flex-direction:column; color:var(--muted); font-size:15px; }
+        .contact-list a{ color:var(--accent); text-decoration:none; font-weight:600; transition:color 0.2s; }
+        .contact-list a:hover{ color:#0b5a78; } /* Color de hover */
+        .contact-list li { display: flex; align-items: center; }
+        .contact-list i { margin-right: 10px; color: var(--accent); font-size: 16px; }
+
+        .skill-list{ list-style:none; color:#495057; font-size:15px; line-height:1.8; padding-left: 0; }
+        .skill-list li { margin-bottom: 4px; }
+
+        /* MAIN */
+        main{ display:flex; flex-direction:column; gap:24px; }
+        header.hero{
+            display:flex; justify-content:space-between; align-items:flex-start; gap:20px;
+        }
+        .hero-left h1{ font-size:32px; color:var(--accent); margin-bottom:10px; font-weight:800; }
+        .hero-left p{ color:#495057; font-size:16px; line-height:1.55; max-width:900px; }
+
+        .cta {
+            display:flex;
+            flex-direction:column;
+            gap:10px;
+            align-items:flex-end;
+            flex-shrink: 0;
+        }
+        .btn {
+            background:var(--accent);
+            color:#fff;
+            padding:12px 20px;
+            border-radius:999px;
+            font-weight:700;
+            text-decoration:none;
+            display:inline-block;
+            transition:background 0.2s, transform 0.1s;
+        }
+        .btn:hover{ background:#0b5a78; }
+        .btn:active{ transform: translateY(1px); }
+
+        .link-plain { color:var(--accent); text-decoration:none; font-weight:600; font-size:14px; transition:color 0.2s; }
+        .link-plain:hover { color:#0b5a78; text-decoration:underline; }
+
+        /* Proyectos */
+        .projects{ display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:18px; }
+        .project-card{
+            background:#f8f9fa; /* Fondo ligeramente diferente para destacar */
+            border-radius:var(--radius);
+            padding:18px;
+            border: 1px solid #e9ecef;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .project-card:hover{
+            transform: translateY(-3px);
+            box-shadow:0 12px 20px rgba(11,74,120,0.08);
+        }
+        .project-card a{
+            color:var(--accent);
+            font-size:18px;
+            font-weight:700;
+            text-decoration:none;
+            display:block;
+            margin-bottom:6px;
+            transition:color 0.2s;
+        }
+        .project-card a:hover { text-decoration:underline; }
+        .project-card p{ color:var(--muted); font-size:14px; line-height:1.5; }
+
+        /* galería */
+        .gallery{ display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:20px; }
+        .thumb{
+            background: #e9ecef;
+            border-radius:var(--radius);
+            height:180px; /* Altura fija para uniformidad */
+            display:block; /* Lo convertimos en un bloque */
+            position:relative;
+            overflow:hidden;
+            box-shadow:0 8px 16px rgba(11,74,120,0.08);
+            cursor:pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .thumb:hover{
+            transform: scale(1.03);
+            box-shadow:0 16px 30px rgba(11,74,120,0.12);
+        }
+        .thumb img{
+            width:100%;
+            height:100%;
+            object-fit:cover;
+            display:block;
+            transition: opacity 0.3s;
+        }
+        .thumb-label{
+            position:absolute;
+            inset:0;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            color:var(--accent);
+            font-weight:800;
+            font-size:16px;
+            background:rgba(255,255,255,0.85); /* Fondo semitransparente para cuando no hay imagen */
+            opacity: 1;
+            transition: opacity 0.3s;
+        }
+        /* Ocultar la etiqueta si la imagen carga */
+        .thumb-img-loaded .thumb-label { display: none; }
+
+        footer.note{
+            color:var(--muted);
+            font-size:12px;
+            margin-top:20px;
+            padding-top:10px;
+            border-top: 1px dashed #ced4da;
+            line-height:1.5;
+        }
+        footer.note a { color: var(--accent); font-weight: 600; text-decoration: none; }
+
+        /* responsive */
+        @media (max-width:900px){
+            body{ padding: 16px; }
+            .container{ grid-template-columns: 1fr; gap: 16px; }
+            header.hero{ flex-direction:column; align-items:flex-start; }
+            .cta{ align-items:flex-start; width: 100%; margin-top: 12px; }
+            .btn { width: 100%; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <aside class="card" aria-label="Información personal">
+            <img class="avatar" id="avatarImg" src="images/foto_JDDR_formal.jfif" alt="Foto formal Juan David DR">
+            <div class="name">Juan David DR</div>
+            <div class="role">Estudiante de Economía · Tecnólogo en Desarrollo de Software</div>
+
+            <div style="margin-top:20px;">
+                <div class="section-title">Contacto</div>
+                <ul class="contact-list">
+                    <li><i class="fas fa-envelope"></i> <a href="mailto:diazrodriguezuandavi21@gmail.com">diazrodriguezuandavi21@gmail.com</a></li>
+                    <li><i class="fas fa-phone-alt"></i> +57 302 471 7799</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Cajicá, Cundinamarca</li>
+                    <li><i class="fab fa-github"></i> <a href="https://github.com/DavidZaid" target="_blank" rel="noopener">github.com/DavidZaid</a></li>
+                </ul>
+            </div>
+
+            <div style="margin-top:30px;">
+                <div class="section-title">Habilidades</div>
+                <ul class="skill-list">
+                    <li><i class="fas fa-code" style="color: var(--accent); margin-right: 8px;"></i> **Frontend:** HTML, CSS, JavaScript, React</li>
+                    <li><i class="fas fa-server" style="color: var(--accent); margin-right: 8px;"></i> **Backend:** Node.js, Liquid (Shopify)</li>
+                    <li><i class="fas fa-database" style="color: var(--accent); margin-right: 8px;"></i> **Bases de Datos:** MySQL, MongoDB</li>
+                    <li><i class="fas fa-tools" style="color: var(--accent); margin-right: 8px;"></i> **Herramientas:** Git, Google Apps</li>
+                </ul>
+            </div>
+        </aside>
+
+        <main>
+            <header class="card hero" role="banner">
+                <div class="hero-left">
+                    <h1>Hola, soy **Juan David** 👋</h1>
+                    <p>Estudiante de **Economía** (Universidad Militar Nueva Granada) y **Tecnólogo en Análisis y Desarrollo de Software** (SENA). Me especializo en el **desarrollo web** y la creación de soluciones efectivas para **tiendas en línea** (e-commerce). Aquí puedes explorar mis proyectos, capturas de trabajo y enlaces a mi código fuente.</p>
+                </div>
+
+                <div class="cta">
+                    <a class="btn" href="mailto:diazrodriguezuandavi21@gmail.com"><i class="fas fa-paper-plane" style="margin-right: 8px;"></i> Contactar Ahora</a>
+                    <a class="link-plain" href="CV-JuanDavidDR.pdf" target="_blank" rel="noopener"><i class="fas fa-file-download" style="margin-right: 5px;"></i> Descargar CV</a>
+                </div>
+            </header>
+
+            <section class="card" id="proyectos">
+                <div class="section-title">Proyectos Destacados</div>
+                <div class="projects" aria-live="polite">
+                    <article class="project-card">
+                        <a href="https://github.com/DavidZaid/LogiPlanner" target="_blank" rel="noopener">LogiPlanner (ERP/Logística)</a>
+                        <p>Sistema completo de gestión de inventarios y optimización de rutas de entrega. Desarrollado con **Node.js** en el backend, utilizando **MongoDB** como base de datos y exponiendo una **API REST** robusta.</p>
+                    </article>
+
+                    <article class="project-card">
+                        <a href="https://github.com/DavidZaid/Plantilla-web" target="_blank" rel="noopener">Plantilla Web para E-commerce</a>
+                        <p>Un **template web responsive** y moderno, ideal como base para tiendas. Incluye ejemplos de integración con tecnologías frontend (**HTML, CSS, JS**) y plantillas de **Liquid** para entornos como Shopify.</p>
+                    </article>
+                    
+                    </div>
+            </section>
+
+            <section class="card" id="galeria">
+                <div class="section-title">Muestras de Trabajo (Capturas)</div>
+                <div class="gallery" id="gallery">
+                    <a href="images/proyecto1.png" target="_blank" class="thumb" data-project="LogiPlanner">
+                        <img src="images/proyecto1.png" alt="Captura del proyecto LogiPlanner">
+                        <div class="thumb-label">LogiPlanner</div>
+                    </a>
+                    <a href="images/proyecto2.png" target="_blank" class="thumb" data-project="Plantilla Web">
+                        <img src="images/proyecto2.png" alt="Captura del proyecto Plantilla Web">
+                        <div class="thumb-label">Plantilla Web</div>
+                    </a>
+                    <a href="images/proyecto3.png" target="_blank" class="thumb" data-project="Dashboard">
+                        <img src="images/proyecto3.png" alt="Captura del proyecto 3: Dashboard de gestión">
+                        <div class="thumb-label">Dashboard</div>
+                    </a>
+                    <a href="images/proyecto4.png" target="_blank" class="thumb" data-project="E-commerce">
+                        <img src="images/proyecto4.png" alt="Captura del proyecto 4: Vista de E-commerce">
+                        <div class="thumb-label">E-commerce</div>
+                    </a>
+                </div>
+
+                <footer class="note">
+                    <p>
+                        **Importante:** Para que se vea correctamente, debes subir tus archivos de imagen a la carpeta <code>images/</code> con los nombres correctos: <strong><code>foto_JDDR_formal.jfif</code></strong>, <strong><code>proyecto1.png</code></strong>, <strong><code>proyecto2.png</code></strong>, etc. Recomiendo que tus capturas sean de **alta calidad**. Explora todos mis repositorios en <a href="https://github.com/DavidZaid" target="_blank" rel="noopener">GitHub</a>.
+                    </p>
+                </footer>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        // Función para manejar el estado de carga de las imágenes y el avatar
+        document.addEventListener('DOMContentLoaded', function(){
+            const avatar = document.getElementById('avatarImg');
+            
+            // Función genérica para manejar la carga de imágenes
+            const handleImageLoad = (imgElement, parentElement, labelElement) => {
+                const checkLoadStatus = () => {
+                    if (imgElement.complete) {
+                        if (imgElement.naturalWidth > 0) {
+                            // Carga exitosa: ocultar etiqueta y marcar el padre
+                            parentElement.classList.add('thumb-img-loaded');
+                            if(labelElement) labelElement.style.opacity = '0';
+                        } else {
+                            // Imagen rota o vacía: mantener visible la etiqueta (o placeholder)
+                            parentElement.classList.remove('thumb-img-loaded');
+                            if(labelElement) labelElement.style.opacity = '1';
+                        }
+                    }
+                };
+
+                // Eventos
+                imgElement.addEventListener('load', checkLoadStatus);
+                imgElement.addEventListener('error', () => {
+                    // Si falla, removemos la imagen y dejamos el placeholder/etiqueta
+                    imgElement.style.display = 'none';
+                    parentElement.classList.remove('thumb-img-loaded');
+                    if(labelElement) labelElement.style.opacity = '1';
+                    
+                    // Si es el avatar, mostramos un ícono de usuario en el placeholder
+                    if (imgElement.id === 'avatarImg') {
+                        avatar.innerHTML = '<i class="fas fa-user-tie"></i>';
+                    }
+                });
+                
+                // Ejecutar inmediatamente si ya está completa (ej. desde caché)
+                checkLoadStatus();
+            };
+
+            // 1. Avatar (foto)
+            // Agregamos un div para contener el icono de placeholder si falla
+            const avatarPlaceholder = document.createElement('div');
+            avatarPlaceholder.className = 'avatar-placeholder';
+            avatar.parentNode.insertBefore(avatarPlaceholder, avatar);
+            avatarPlaceholder.appendChild(avatar);
+
+            handleImageLoad(avatar, avatarPlaceholder, null); // No hay etiqueta para el avatar, el placeholder es el icono
+
+            // 2. Galería de proyectos
+            const thumbs = document.querySelectorAll('.thumb');
+            thumbs.forEach(a => {
+                const img = a.querySelector('img');
+                const label = a.querySelector('.thumb-label');
+                if(img) handleImageLoad(img, a, label);
+            });
+        });
+    </script>
+</body>
+</html>
