@@ -13,8 +13,8 @@
         /* RESET ligero */
         * { box-sizing: border-box; margin: 0; padding: 0; }
         :root{
-            --accent:#073645; /* Azul Oscuro (Títulos, enlaces) */
-            --primary-btn:#1a73e8; /* Azul más vibrante (Botón principal) */
+            --accent:#073645;
+            --primary-btn:#1a73e8;
             --muted:#6b7280;
             --bg:#f8f9fa;
             --card:#ffffff;
@@ -35,7 +35,7 @@
             width:100%;
             max-width:var(--maxw);
             display:grid;
-            grid-template-columns: 300px 1fr; /* Soluciona el descuadre del sidebar */
+            grid-template-columns: 320px 1fr; /* AUMENTADO A 320px para el sidebar */
             gap:24px;
             align-items:start;
         }
@@ -73,8 +73,13 @@
         .contact-list{ list-style:none; margin-top:8px; gap:12px; display:flex; flex-direction:column; color:var(--muted); font-size:15px; padding-left: 0;}
         .contact-list a{ color:var(--accent); text-decoration:none; font-weight:600; transition:color 0.2s; }
         .contact-list a:hover{ color:#0b5a78; }
-        .contact-list li { display: flex; align-items: center; }
-        .contact-list i { margin-right: 10px; color: var(--accent); font-size: 16px; }
+        .contact-list li {
+            display: flex;
+            align-items: flex-start; /* Alineación al inicio para textos largos */
+            overflow-wrap: break-word; /* SOLUCIÓN: Romper palabras largas si no caben */
+            word-wrap: break-word; /* Fallback para IE/Edge */
+        }
+        .contact-list i { margin-right: 10px; color: var(--accent); font-size: 16px; flex-shrink: 0; }
 
         .skill-list{ list-style:none; color:#495057; font-size:15px; line-height:1.8; padding-left: 0; margin-top: 10px; }
         .skill-list li { margin-bottom: 4px; display: flex; align-items: center;}
@@ -96,9 +101,8 @@
             flex-shrink: 0;
             min-width: 180px;
         }
-        /* Color de Botón Arreglado */
         .btn {
-            background:var(--primary-btn); /* **¡Color de botón corregido!** */
+            background:var(--primary-btn);
             color:#fff;
             padding:12px 20px;
             border-radius:999px;
@@ -227,7 +231,7 @@
             <header class="card hero" role="banner">
                 <div class="hero-left">
                     <h1>Hola, soy Juan David 👋</h1>
-                    <p>Estudiante de **Economía** (Universidad Militar Nueva Granada) y **Tecnólogo en Análisis y Desarrollo de Software** (SENA). Me especializo en el desarrollo web y la creación de soluciones efectivas para tiendas en línea (e-commerce). Aquí puedes explorar mis proyectos, capturas de trabajo y enlaces a mi código fuente.</p>
+                    <p>Estudiante de Economía (Universidad Militar Nueva Granada) y Tecnólogo en Análisis y Desarrollo de Software (SENA). Me especializo en el desarrollo web y la creación de soluciones efectivas para tiendas en línea (e-commerce). Aquí puedes explorar mis proyectos, capturas de trabajo y enlaces a mi código fuente.</p>
                 </div>
 
                 <div class="cta">
@@ -274,7 +278,7 @@
 
                 <footer class="note">
                     <p>
-                        **Recordatorio:** Para que se vea con las imágenes, sube los archivos de imagen a la carpeta <code>images/</code> con los nombres correctos. Más proyectos en <a href="https://github.com/DavidZaid" target="_blank" rel="noopener">GitHub</a>.
+                        **Recordatorio:** Para que se vea con las imágenes, sube los archivos de imagen a la carpeta <code>images/</code> con los nombres correctos: <strong><code>foto_JDDR_formal.jfif</code></strong>, <strong><code>proyecto1.png</code></strong>, <strong><code>proyecto2.png</code></strong>, etc. Más proyectos en <a href="https://github.com/DavidZaid" target="_blank" rel="noopener">GitHub</a>.
                     </p>
                 </footer>
             </section>
@@ -282,6 +286,7 @@
     </div>
 
     <script>
+        // Lógica de fallback para imágenes y avatar
         document.addEventListener('DOMContentLoaded', function(){
             // --- Avatar (foto de perfil) ---
             const avatarContainer = document.querySelector('.avatar-container');
@@ -318,11 +323,11 @@
                         if (img.naturalWidth > 0) {
                             a.classList.add('thumb-img-loaded');
                             a.classList.remove('thumb-img-failed');
-                            if (label) label.style.opacity = '0'; // Asegura que se oculte
+                            if (label) label.style.opacity = '0';
                         } else {
                             a.classList.remove('thumb-img-loaded');
                             a.classList.add('thumb-img-failed');
-                            if (label) label.style.opacity = '1'; // Asegura que se muestre
+                            if (label) label.style.opacity = '1';
                         }
                     }
                 };
