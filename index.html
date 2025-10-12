@@ -35,12 +35,12 @@
             width:100%;
             max-width:var(--maxw);
             display:grid;
-            grid-template-columns: 320px 1fr; 
+            grid-template-columns: 320px 1fr; /* Bloque Lateral (Sidebar) ampliado a 320px */
             gap:24px;
             align-items:start;
         }
 
-        /* Tarjeta */
+        /* Tarjeta base para secciones */
         .card{
             background:var(--card);
             border-radius:var(--radius);
@@ -62,7 +62,7 @@
         .avatar-placeholder-icon{
             font-size:3rem; color:var(--muted); font-weight:700;
             position: absolute; 
-            display: flex; 
+            display: flex; /* Asegura que el ícono esté visible si la imagen no se carga */
         }
         .name{ text-align:center; font-size:24px; font-weight:800; color:var(--accent); margin-bottom:4px; }
         .role{ text-align:center; color:var(--muted); font-size:14px; margin-bottom:18px; line-height:1.4;}
@@ -158,10 +158,10 @@
         .project-card a:hover { text-decoration:underline; }
         .project-card p{ color:var(--muted); font-size:14px; line-height:1.5; }
 
-        /* Galería */
+        /* Galería de muestras de trabajo */
         .gallery{ display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:20px; }
         .thumb{
-            background: #e9ecef;
+            background: #e9ecef; /* Color de fondo si no hay imagen */
             border-radius:var(--radius);
             height:180px;
             display:flex; align-items:center; justify-content:center;
@@ -178,7 +178,7 @@
             background:rgba(255,255,255,0.85); z-index: 1; transition: opacity 0.3s;
         }
         .thumb-img-loaded .thumb-label { opacity: 0; pointer-events: none; }
-        .thumb-img-failed .thumb-label { opacity: 1; }
+        .thumb-img-failed .thumb-label { opacity: 1; } /* Muestra la etiqueta si la imagen de la galería falla */
 
 
         footer.note{
@@ -279,7 +279,7 @@
 
                 <footer class="note">
                     <p>
-                        **Recordatorio:** Asegúrate de que los archivos **`LogiPlanner.pdf`** y **`pharmaboot.pdf`** estén en la carpeta principal. La imagen de perfil debe llamarse <strong>`foto_JDDR_formal.jfif`</strong> y estar en la carpeta <code>images/</code>.
+                        **Recordatorio:** Asegúrate de que los archivos **`LogiPlanner.pdf`** y **`pharmaboot.pdf`** estén en la **carpeta principal** de tu proyecto (junto a `index.html`). La imagen de perfil debe llamarse <strong>`foto_JDDR_formal.jfif`</strong> y estar en la carpeta <code>images/</code>. Tus imágenes de muestra (<code>proyecto1.png</code>, etc.) también deben estar en <code>images/</code>.
                     </p>
                 </footer>
             </section>
@@ -314,7 +314,7 @@
                 avatarImg.style.display = 'none';
                 avatarPlaceholderIcon.style.display = 'flex';
             });
-            checkAvatarLoadStatus(); 
+            checkAvatarLoadStatus(); // Verifica el estado de la imagen al inicio
 
             // --- Galería de proyectos (miniaturas) ---
             const thumbs = document.querySelectorAll('.thumb');
@@ -328,12 +328,12 @@
                             // Imagen cargada correctamente: ocultar la etiqueta de reemplazo
                             a.classList.add('thumb-img-loaded');
                             a.classList.remove('thumb-img-failed');
-                            if (label) label.style.opacity = '0';
+                            if (label) label.style.opacity = '0'; // Oculta el label con CSS
                         } else {
                             // Imagen con error: mostrar la etiqueta de reemplazo
                             a.classList.remove('thumb-img-loaded');
                             a.classList.add('thumb-img-failed');
-                            if (label) label.style.opacity = '1';
+                            if (label) label.style.opacity = '1'; // Muestra el label con CSS
                         }
                     }
                 };
@@ -345,7 +345,7 @@
                     a.classList.add('thumb-img-failed');
                     if (label) label.style.opacity = '1';
                 });
-                checkThumbLoadStatus();
+                checkThumbLoadStatus(); // Verifica el estado de la imagen al inicio
             });
         });
     </script>
