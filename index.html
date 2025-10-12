@@ -35,7 +35,7 @@
             width:100%;
             max-width:var(--maxw);
             display:grid;
-            grid-template-columns: 320px 1fr; /* Bloque Lateral (Sidebar) ampliado a 320px */
+            grid-template-columns: 320px 1fr; 
             gap:24px;
             align-items:start;
         }
@@ -60,7 +60,6 @@
         }
         .avatar-img{ width:100%; height:100%; object-fit:cover; display:block; }
         .avatar-placeholder-icon{
-            /* CORRECCIÓN: Asegura que el ícono de reemplazo se muestre si la imagen falla */
             font-size:3rem; color:var(--muted); font-weight:700;
             position: absolute; 
             display: flex; 
@@ -77,8 +76,8 @@
         .contact-list a:hover{ color:#0b5a78; }
         .contact-list li {
             display: flex;
-            align-items: flex-start; /* Alineación al inicio para textos largos */
-            overflow-wrap: break-word; /* Rompe el texto del correo si no cabe */
+            align-items: flex-start; 
+            overflow-wrap: break-word; 
             word-wrap: break-word; 
         }
         .contact-list i { margin-right: 10px; color: var(--accent); font-size: 16px; flex-shrink: 0; }
@@ -202,7 +201,7 @@
     <div class="container">
         <aside class="card" aria-label="Información personal">
             <div class="avatar-container">
-                <img class="avatar-img" id="avatarImg" src="images/perfil.jfif" alt="Foto formal Juan David DR">
+                <img class="avatar-img" id="avatarImg" src="images/foto_JDDR_formal.jfif" alt="Foto formal Juan David DR">
                 <div class="avatar-placeholder-icon"><i class="fas fa-user-tie"></i></div>
             </div>
             <div class="name">Juan David DR</div>
@@ -246,12 +245,12 @@
                 <div class="section-title">Proyectos Destacados</div>
                 <div class="projects" aria-live="polite">
                     <article class="project-card">
-                        <a href="#galeria" rel="noopener">LogiPlanner (ERP/Logística)</a>
+                        <a href="LogiPlanner.pdf" target="_blank" rel="noopener">LogiPlanner (ERP/Logística - Ver PDF 📄)</a>
                         <p>Sistema completo de gestión de inventarios y optimización de rutas de entrega. Desarrollado con Node.js en el backend, utilizando MongoDB como base de datos y exponiendo una API REST robusta.</p>
                     </article>
 
                     <article class="project-card">
-                        <a href="https://github.com/DavidZaid/Plantilla-web" target="_blank" rel="noopener">Plantilla Web para E-commerce</a>
+                        <a href="pharmaboot.pdf" target="_blank" rel="noopener">Plantilla Web para E-commerce (Ver PDF 📄)</a>
                         <p>Un template web responsive y moderno, ideal como base para tiendas. Incluye ejemplos de integración con tecnologías frontend (HTML, CSS, JS) y plantillas de Liquid para entornos como Shopify.</p>
                     </article>
                 </div>
@@ -280,7 +279,7 @@
 
                 <footer class="note">
                     <p>
-                        **Recordatorio:** Para que se vea con las imágenes, sube los archivos de imagen a la carpeta <code>images/</code> con los nombres correctos: <strong><code>fotojdreformal.jfif</code></strong>, <strong><code>proyecto1.png</code></strong>, <strong><code>proyecto2.png</code></strong>, etc. Más proyectos en <a href="https://github.com/DavidZaid" target="_blank" rel="noopener">GitHub</a>.
+                        **Recordatorio:** Asegúrate de que los archivos **`LogiPlanner.pdf`** y **`pharmaboot.pdf`** estén en la carpeta principal. La imagen de perfil debe llamarse <strong>`foto_JDDR_formal.jfif`</strong> y estar en la carpeta <code>images/</code>.
                     </p>
                 </footer>
             </section>
