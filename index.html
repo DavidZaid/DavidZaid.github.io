@@ -1,345 +1,304 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
- <meta charset="utf-8" />
- <meta name="viewport" content="width=device-width, initial-scale=1" />
- <title>Portafolio — Juan David DR</title>
- <link rel="preconnect" href="https://fonts.googleapis.com">
- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
- <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
- <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portafolio — Juan David DR</title>
 
- <style>
- /* RESET ligero */
- * { box-sizing: border-box; margin: 0; padding: 0; }
- :root{
-  --accent:#073645;
-  --primary-btn:#1a73e8;
-  --muted:#6b7280;
-  --bg:#f8f9fa;
-  --card:#ffffff;
-  --radius:10px;
-  --maxw:1200px;
-  font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  line-height: 1.6;
- }
- body{
-  background:var(--bg);
-  color:#212529;
-  padding:32px 16px;
-  display:flex;
-  justify-content:center;
- }
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
 
- .container{
-  width:100%;
-  max-width:var(--maxw);
-  display:grid;
-  grid-template-columns: 320px 1fr;
-  gap:24px;
-  align-items:start;
- }
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
 
- .card{
-  background:var(--card);
-  border-radius:var(--radius);
-  padding:24px;
-  box-shadow:0 4px 12px rgba(0,0,0,0.05);
-  border: 1px solid #e9ecef;
- }
+    :root{
+      --bg:#0f0b19;
+      --card:#f6e9dc;
+      --accent:#7b5cff;
+      --accent-soft:#b9a9ff;
+      --text:#1f1f1f;
+      --muted:#6b5e55;
+      --btn:#7b5cff;
+      --btn-hover:#684bd6;
+      --radius:14px;
+      --maxw:1200px;
+      font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+    }
 
- /* SIDEBAR */
- .avatar-container{
-  width:120px;height:120px;border-radius:999px;overflow:hidden;margin:0 auto 16px;
-  display:flex; align-items:center; justify-content:center;
-  border:4px solid #fff;
-  box-shadow:0 6px 16px rgba(11,74,120,0.10);
-  background:linear-gradient(180deg,#fff,#eef6fa);
-  position: relative;
- }
- .avatar-img{ width:100%; height:100%; object-fit:cover; display:block; }
- .avatar-placeholder-icon{
-  font-size:3rem; color:var(--muted); font-weight:700;
-  position: absolute; display: flex;
- }
- .name{ text-align:center; font-size:24px; font-weight:800; color:var(--accent); margin-bottom:4px; }
- .role{ text-align:center; color:var(--muted); font-size:14px; margin-bottom:18px; line-height:1.4;}
+    body{
+      background:linear-gradient(180deg,#0f0b19,#1b1330);
+      color:var(--text);
+      padding:32px 16px;
+      display:flex;
+      justify-content:center;
+    }
 
- .section-title {
-  color:var(--accent); font-weight:700; margin-bottom:12px; font-size:16px;
-  border-bottom: 2px solid #e9ecef; padding-bottom: 6px;
- }
- .contact-list{ list-style:none; margin-top:8px; gap:12px; display:flex; flex-direction:column; color:var(--muted); font-size:15px; padding-left: 0;}
- .contact-list a{ color:var(--accent); text-decoration:none; font-weight:600; transition:color 0.2s; }
- .contact-list a:hover{ color:#0b5a78; }
- .contact-list li {
-  display: flex;
-  align-items: flex-start;
-  overflow-wrap: break-word;
-  word-wrap: break-word;
- }
- .contact-list i { margin-right: 10px; color: var(--accent); font-size: 16px; flex-shrink: 0; }
+    .container{
+      width:100%;
+      max-width:var(--maxw);
+      display:grid;
+      grid-template-columns:320px 1fr;
+      gap:24px;
+      align-items:start;
+    }
 
- .skill-list{ list-style:none; color:#495057; font-size:15px; line-height:1.8; padding-left: 0; margin-top: 10px; }
- .skill-list li { margin-bottom: 4px; display: flex; align-items: center;}
- .skill-list i { margin-right: 8px; color: var(--accent); }
+    .card{
+      background:var(--card);
+      border-radius:var(--radius);
+      padding:24px;
+      box-shadow:0 10px 30px rgba(0,0,0,.25);
+    }
 
- /* MAIN */
- main{ display:flex; flex-direction:column; gap:24px; }
- header.hero{
-  display:flex; justify-content:space-between; align-items:flex-start; gap:20px;
- }
- .hero-left h1{ font-size:32px; color:var(--accent); margin-bottom:10px; font-weight:800; }
- .hero-left p{ color:#495057; font-size:16px; line-height:1.55; max-width:900px; }
+    /* SIDEBAR */
+    .avatar-container{
+      width:120px;height:120px;border-radius:999px;
+      margin:0 auto 16px;overflow:hidden;
+      display:flex;align-items:center;justify-content:center;
+      background:linear-gradient(135deg,var(--accent),var(--accent-soft));
+    }
+    .avatar-img{width:100%;height:100%;object-fit:cover}
+    .name{text-align:center;font-size:24px;font-weight:800;margin-bottom:4px}
+    .role{text-align:center;font-size:14px;color:var(--muted);margin-bottom:20px}
 
- .cta {
-  display:flex;
-  flex-direction:column;
-  gap:10px;
-  align-items:flex-end;
-  flex-shrink: 0;
-  min-width: 180px;
- }
- .btn {
-  background:var(--primary-btn);
-  color:#fff;
-  padding:12px 20px;
-  border-radius:999px;
-  font-weight:700;
-  text-decoration:none;
-  display:inline-flex;
-  align-items: center;
-  justify-content: center;
-  transition:background 0.2s, transform 0.1s;
-  width: 100%;
- }
- .btn:hover{ background:#1558b0; }
- .btn:active{ transform: translateY(1px); }
- .btn i { margin-right: 8px; }
+    .section-title{
+      font-weight:700;
+      font-size:15px;
+      margin-bottom:10px;
+      border-bottom:2px solid rgba(0,0,0,.1);
+      padding-bottom:6px;
+    }
 
- .link-plain {
-  color:var(--accent);
-  text-decoration:none;
-  font-weight:600;
-  font-size:14px;
-  transition:color 0.2s;
-  display:inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
- }
- .link-plain:hover { color:#0b5a78; text-decoration:underline; }
- .link-plain i { margin-right: 5px; }
+    .contact-list,.skill-list{
+      list-style:none;
+      font-size:14px;
+      color:var(--muted);
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+    }
 
- /* Proyectos */
- .projects{ display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:18px; }
- .project-card{
-  background:#f8f9fa;
-  border-radius:var(--radius);
-  padding:18px;
-  border: 1px solid #e9ecef;
-  transition: transform 0.2s, box-shadow 0.2s;
- }
- .project-card:hover{
-  transform: translateY(-3px);
-  box-shadow:0 12px 20px rgba(11,74,120,0.08);
- }
- .project-card a{
-  color:var(--accent);
-  font-size:18px;
-  font-weight:700;
-  text-decoration:none;
-  display:block;
-  margin-bottom:6px;
-  transition:color 0.2s;
- }
- .project-card a:hover { text-decoration:underline; }
- .project-card p{ color:var(--muted); font-size:14px; line-height:1.5; }
+    .contact-list a{
+      color:var(--accent);
+      font-weight:600;
+      text-decoration:none;
+    }
 
- /* Galería */
- .gallery{ display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:20px; }
- .thumb{
-  background: #e9ecef;
-  border-radius:var(--radius);
-  height:180px;
-  display:flex; align-items:center; justify-content:center;
-  position:relative; overflow:hidden;
-  box-shadow:0 8px 16px rgba(11,74,120,0.08);
-  cursor:pointer; transition: transform 0.2s, box-shadow 0.2s;
-  text-decoration: none;
- }
- .thumb:hover{ transform: scale(1.03); box-shadow:0 16px 30px rgba(11,74,120,0.12); }
- .thumb img{ width:100%; height:100%; object-fit:cover; display:block; position: absolute; top: 0; left: 0; }
- .thumb-label{
-  position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
-  color:var(--accent); font-weight:800; font-size:16px;
-  background:rgba(255,255,255,0.85); z-index: 1; transition: opacity 0.3s;
- }
- .thumb-img-loaded .thumb-label { opacity: 0; pointer-events: none; }
- .thumb-img-failed .thumb-label { opacity: 1; }
+    /* MAIN */
+    main{display:flex;flex-direction:column;gap:24px}
 
- .pdf-icon {
-  position: absolute;
-  top: 8px;
-  right: 8px;
-  background: rgba(255,255,255,0.9);
-  padding: 4px 6px;
-  border-radius: 6px;
-  color: #d32f2f;
-  font-size: 16px;
-  z-index: 2;
- }
+    .hero{
+      display:flex;
+      justify-content:space-between;
+      gap:24px;
+      align-items:flex-start;
+    }
 
- footer.note{
-  color:var(--muted); font-size:12px; margin-top:20px;
-  padding-top:10px; border-top: 1px dashed #ced4da; line-height:1.5;
- }
- footer.note a { color: var(--accent); font-weight: 600; text-decoration: none; }
+    .hero h1{
+      font-size:32px;
+      font-weight:800;
+      margin-bottom:10px;
+    }
 
- @media (max-width:900px){
-  body{ padding: 16px; }
-  .container{ grid-template-columns: 1fr; gap: 16px; }
-  header.hero{ flex-direction:column; align-items:flex-start; }
-  .cta{ align-items:flex-start; width: 100%; margin-top: 12px; }
-  .btn, .link-plain { width: 100%; text-align: center; }
- }
- </style>
+    .hero p{
+      color:#3a2f28;
+      max-width:900px;
+      line-height:1.55;
+    }
+
+    .cta{
+      min-width:200px;
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+    }
+
+    .btn{
+      background:var(--btn);
+      color:white;
+      text-decoration:none;
+      font-weight:700;
+      padding:14px 22px;
+      border-radius:999px;
+      text-align:center;
+      transition:.2s;
+    }
+
+    .btn:hover{background:var(--btn-hover)}
+
+    /* SERVICES */
+    .services ul{
+      list-style:none;
+      display:grid;
+      gap:10px;
+      color:#3a2f28;
+    }
+
+    /* PROJECTS */
+    .projects{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:18px;
+    }
+
+    .project-card{
+      background:#fff3e8;
+      border-radius:12px;
+      padding:18px;
+      transition:.2s;
+    }
+
+    .project-card:hover{
+      transform:translateY(-4px);
+      box-shadow:0 12px 25px rgba(0,0,0,.15);
+    }
+
+    .project-card a{
+      color:var(--accent);
+      font-weight:700;
+      font-size:18px;
+      text-decoration:none;
+    }
+
+    .project-card p{
+      font-size:14px;
+      color:#5b4b40;
+      margin-top:6px;
+    }
+
+    /* GALLERY */
+    .gallery{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+      gap:20px;
+    }
+
+    .thumb{
+      position:relative;
+      height:180px;
+      border-radius:12px;
+      overflow:hidden;
+      background:#ddd;
+      box-shadow:0 8px 20px rgba(0,0,0,.2);
+      text-decoration:none;
+    }
+
+    .thumb img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    .thumb-label{
+      position:absolute;
+      inset:0;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight:800;
+      background:rgba(255,255,255,.85);
+      color:var(--accent);
+    }
+
+    @media(max-width:900px){
+      .container{grid-template-columns:1fr}
+      .hero{flex-direction:column}
+    }
+  </style>
 </head>
-<body>
- <div class="container">
-  <!-- Sidebar -->
-  <aside class="card">
-   <div class="avatar-container">
-    <img class="avatar-img" id="avatarImg" src="images/perfil.jfif" alt="Foto formal Juan David DR">
-    <div class="avatar-placeholder-icon"><i class="fas fa-user-tie"></i></div>
-   </div>
-   <div class="name">Juan David DR</div>
-   <div class="role">Estudiante de Economía · Tecnólogo en Desarrollo de Software</div>
 
-   <div style="margin-top:20px;">
+<body>
+<div class="container">
+
+  <!-- SIDEBAR -->
+  <aside class="card">
+    <div class="avatar-container">
+      <img class="avatar-img" src="images/perfil.jfif" alt="Juan David">
+    </div>
+    <div class="name">Juan David DR</div>
+    <div class="role">Economía · Desarrollo de Software</div>
+
     <div class="section-title">Contacto</div>
     <ul class="contact-list">
-     <li><i class="fas fa-envelope"></i> <a href="mailto:diazrodriguezuandavi21@gmail.com">diazrodriguezuandavi21@gmail.com</a></li>
-     <li><i class="fas fa-phone-alt"></i> +57 302 471 7799</li>
-     <li><i class="fas fa-map-marker-alt"></i> Cajicá, Cundinamarca</li>
-     <li><i class="fab fa-github"></i> <a href="https://github.com/DavidZaid" target="_blank" rel="noopener">github.com/DavidZaid</a></li>
+      <li>📧 <a href="mailto:diazrodriguezuandavi21@gmail.com">Email directo</a></li>
+      <li>📞 +57 302 471 7799</li>
+      <li>📍 Cajicá, Colombia</li>
+      <li>💻 <a href="https://github.com/DavidZaid" target="_blank">GitHub</a></li>
     </ul>
-   </div>
 
-   <div style="margin-top:30px;">
-    <div class="section-title">Habilidades</div>
+    <div class="section-title" style="margin-top:20px">Habilidades</div>
     <ul class="skill-list">
-     <li><i class="fas fa-code"></i> Frontend: HTML, CSS, JavaScript, React</li>
-     <li><i class="fas fa-server"></i> Backend: Node.js, Liquid (Shopify)</li>
-     <li><i class="fas fa-database"></i> Bases de Datos: MySQL, MongoDB</li>
-     <li><i class="fas fa-tools"></i> Herramientas: Git, Google Apps</li>
+      <li>✔️ Excel y automatización básica</li>
+      <li>✔️ HTML, CSS, JavaScript</li>
+      <li>✔️ Sistemas CRUD</li>
+      <li>✔️ Node.js, MongoDB</li>
+      <li>✔️ Shopify / Liquid</li>
     </ul>
-   </div>
   </aside>
 
-  <!-- Main -->
+  <!-- MAIN -->
   <main>
-   <header class="card hero">
-    <div class="hero-left">
-     <h1>Hola, soy Juan David 👋</h1>
-     <p>Estudiante de Economía (Universidad Militar Nueva Granada) y Tecnólogo en Análisis y Desarrollo de Software (SENA). Me especializo en el desarrollo web y la creación de soluciones efectivas para tiendas en línea (e-commerce). Aquí puedes explorar mis proyectos, capturas de trabajo y enlaces a mi código fuente.</p>
-    </div>
 
-    <div class="cta">
-     <a class="btn" href="mailto:diazrodriguezuandavi21@gmail.com"><i class="fas fa-paper-plane"></i> Contactar Ahora</a>
-    
-    </div>
-   </header>
+    <section class="card hero">
+      <div>
+        <h1>Ayudo a personas y negocios a resolver tareas técnicas rápido</h1>
+        <p>
+          Especializado en conversión de documentos a Excel, automatización de datos,
+          páginas web funcionales y sistemas simples de gestión.
+          Experiencia en proyectos reales y entregables claros.
+        </p>
+      </div>
+      <div class="cta">
+        <a class="btn" href="mailto:diazrodriguezuandavi21@gmail.com">Contactar ahora</a>
+      </div>
+    </section>
 
-   <section class="card" id="proyectos">
-    <div class="section-title">Proyectos Destacados</div>
-    <div class="projects">
-     <article class="project-card">
-      <a href="#galeria" rel="noopener">LogiPlanner </a>
-      <p>Sistema de gestión de inventarios, backend en Node.js + MongoDB.</p>
-     </article>
+    <section class="card services">
+      <div class="section-title">Servicios para Workana</div>
+      <ul>
+        <li>📊 Conversión de PDF / Word a Excel</li>
+        <li>⚙️ Automatización de hojas de cálculo</li>
+        <li>🌐 Páginas web simples y funcionales</li>
+        <li>🗂️ Sistemas de registro y paneles administrativos</li>
+        <li>🛒 Ajustes en Shopify / Liquid</li>
+      </ul>
+    </section>
 
-     <article class="project-card">
-      <a href="#galeria" rel="noopener">Web Integral</a>
-      <p>Plataforma con módulos de reservas, noticias, centro de descargas y sistema de login únicoLiquid.Liquid y frontend integrado.</p>
-     </article>
-    </div>
-   </section>
+    <section class="card">
+      <div class="section-title">Proyectos reales</div>
+      <div class="projects">
+        <div class="project-card">
+          <a href="#galeria">LogiPlanner</a>
+          <p>Sistema de inventarios en Node.js y MongoDB. Control y organización de datos.</p>
+        </div>
+        <div class="project-card">
+          <a href="#galeria">Web Conjunto Residencial Nogal</a>
+          <p>Página web funcional con módulos informativos y sistema de acceso. ✔️ Cliente real.</p>
+        </div>
+      </div>
+    </section>
 
-   <section class="card" id="galeria">
-    <div class="section-title">Muestras de Trabajo (PDF)</div>
-    <div class="gallery" id="gallery">
-     <a href="docts/LogiPlanner.pdf" target="_blank" class="thumb">
-      <img src="images/Captura de pantalla (1505).png" alt="LogiPlanner">
-      <div class="thumb-label">LogiPlanner</div>
-      
-     </a>
-     <a href="docts/Pharmaboot.pdf" target="_blank" class="thumb">
-      <img src="images/Captura de pantalla (1504).png" alt="Pharmaboot">
-      <div class="thumb-label">Pharmaboot</div>
-    
-     </a>
-     <a href="docts/webnl.pdf" target="_blank" class="thumb">
-      <img src="images/Captura de pantalla (1523).png" alt="Web nogal">
-      <div class="thumb-label">Web nogal</div>
-      
-     </a>
-     <a href=".pdf" target="_blank" class="thumb">
-      <img src="images/Crmg.png" alt="Crm">
-      <div class="thumb-label">Crm</div>
-     
-     </a>
-    </div>
+    <section class="card" id="galeria">
+      <div class="section-title">Muestras de trabajo (PDF)</div>
+      <div class="gallery">
+        <a class="thumb" href="docts/LogiPlanner.pdf" target="_blank">
+          <img src="images/Captura de pantalla (1505).png">
+          <div class="thumb-label">LogiPlanner</div>
+        </a>
+        <a class="thumb" href="docts/Pharmaboot.pdf" target="_blank">
+          <img src="images/Captura de pantalla (1504).png">
+          <div class="thumb-label">Pharmaboot</div>
+        </a>
+        <a class="thumb" href="docts/webnl.pdf" target="_blank">
+          <img src="images/Captura de pantalla (1523).png">
+          <div class="thumb-label">Web Nogal</div>
+        </a>
+      </div>
+    </section>
 
-    <footer class="note">
-     <p>
-     
-     </p>
-    </footer>
-   </section>
   </main>
- </div>
-
- <script>
- document.addEventListener('DOMContentLoaded', function(){
-   // Avatar fallback
-   const avatarImg = document.getElementById('avatarImg');
-   const avatarPlaceholderIcon = document.querySelector('.avatar-placeholder-icon');
-   const checkAvatar = ()=>{
-     if(avatarImg.complete){
-       if(avatarImg.naturalWidth>0){
-         avatarImg.style.display='block';
-         avatarPlaceholderIcon.style.display='none';
-       }else{
-         avatarImg.style.display='none';
-         avatarPlaceholderIcon.style.display='flex';
-       }
-     }
-   };
-   avatarImg.addEventListener('load', checkAvatar);
-   avatarImg.addEventListener('error', ()=>{avatarImg.style.display='none';avatarPlaceholderIcon.style.display='flex';});
-   checkAvatar();
-
-   // Miniaturas fallback
-   document.querySelectorAll('.thumb').forEach(a=>{
-     const img=a.querySelector('img');
-     const label=a.querySelector('.thumb-label');
-     const check=()=>{
-       if(img.complete){
-         if(img.naturalWidth>0){
-           a.classList.add('thumb-img-loaded');
-           if(label) label.style.opacity='0';
-         }else{
-           a.classList.remove('thumb-img-loaded');
-           if(label) label.style.opacity='1';
-         }
-       }
-     };
-     img.addEventListener('load', check);
-     img.addEventListener('error', ()=>{a.classList.remove('thumb-img-loaded');if(label) label.style.opacity='1';});
-     check();
-   });
- });
- </script>
+</div>
 </body>
 </html>
