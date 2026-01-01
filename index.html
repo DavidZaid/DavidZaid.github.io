@@ -1,304 +1,326 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Portafolio — Juan David DR</title>
+  <meta charset="UTF-8" />
+  <title>Juan David DR | Freelancer Técnico</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Fonts & Icons -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+  <!-- Fuentes -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Iconos -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
 
   <style>
-    *{box-sizing:border-box;margin:0;padding:0}
-
-    :root{
-      --bg:#0f0b19;
-      --card:#f6e9dc;
-      --accent:#7b5cff;
-      --accent-soft:#b9a9ff;
-      --text:#1f1f1f;
-      --muted:#6b5e55;
-      --btn:#7b5cff;
-      --btn-hover:#684bd6;
-      --radius:14px;
-      --maxw:1200px;
-      font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
     }
 
-    body{
-      background:linear-gradient(180deg,#0f0b19,#1b1330);
-      color:var(--text);
-      padding:32px 16px;
-      display:flex;
-      justify-content:center;
+    body {
+      background: #0b0b0b;
+      color: #fff;
     }
 
-    .container{
-      width:100%;
-      max-width:var(--maxw);
-      display:grid;
-      grid-template-columns:320px 1fr;
-      gap:24px;
-      align-items:start;
+    :root {
+      --orange: #ff7a00;
+      --orange-glow: 0 0 30px rgba(255,122,0,.6);
     }
 
-    .card{
-      background:var(--card);
-      border-radius:var(--radius);
-      padding:24px;
-      box-shadow:0 10px 30px rgba(0,0,0,.25);
+    /* ===== HEADER ===== */
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 60px 10%;
+      min-height: 100vh;
     }
 
-    /* SIDEBAR */
-    .avatar-container{
-      width:120px;height:120px;border-radius:999px;
-      margin:0 auto 16px;overflow:hidden;
-      display:flex;align-items:center;justify-content:center;
-      background:linear-gradient(135deg,var(--accent),var(--accent-soft));
-    }
-    .avatar-img{width:100%;height:100%;object-fit:cover}
-    .name{text-align:center;font-size:24px;font-weight:800;margin-bottom:4px}
-    .role{text-align:center;font-size:14px;color:var(--muted);margin-bottom:20px}
-
-    .section-title{
-      font-weight:700;
-      font-size:15px;
-      margin-bottom:10px;
-      border-bottom:2px solid rgba(0,0,0,.1);
-      padding-bottom:6px;
+    .hero-text {
+      max-width: 600px;
     }
 
-    .contact-list,.skill-list{
-      list-style:none;
-      font-size:14px;
-      color:var(--muted);
-      display:flex;
-      flex-direction:column;
-      gap:10px;
+    .hero-text span {
+      color: var(--orange);
+      font-weight: 600;
     }
 
-    .contact-list a{
-      color:var(--accent);
-      font-weight:600;
-      text-decoration:none;
+    .hero-text h1 {
+      font-size: 3.2rem;
+      margin: 15px 0;
     }
 
-    /* MAIN */
-    main{display:flex;flex-direction:column;gap:24px}
-
-    .hero{
-      display:flex;
-      justify-content:space-between;
-      gap:24px;
-      align-items:flex-start;
+    .hero-text p {
+      color: #cfcfcf;
+      line-height: 1.7;
+      margin-bottom: 30px;
     }
 
-    .hero h1{
-      font-size:32px;
-      font-weight:800;
-      margin-bottom:10px;
+    .btn {
+      display: inline-block;
+      padding: 14px 34px;
+      background: var(--orange);
+      color: #000;
+      border-radius: 40px;
+      font-weight: 600;
+      text-decoration: none;
+      box-shadow: var(--orange-glow);
+      transition: .3s;
     }
 
-    .hero p{
-      color:#3a2f28;
-      max-width:900px;
-      line-height:1.55;
+    .btn:hover {
+      transform: scale(1.05);
     }
 
-    .cta{
-      min-width:200px;
-      display:flex;
-      flex-direction:column;
-      gap:12px;
+    .socials {
+      margin-top: 25px;
     }
 
-    .btn{
-      background:var(--btn);
-      color:white;
-      text-decoration:none;
-      font-weight:700;
-      padding:14px 22px;
-      border-radius:999px;
-      text-align:center;
-      transition:.2s;
+    .socials a {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      width: 40px;
+      height: 40px;
+      background: #111;
+      border-radius: 50%;
+      color: var(--orange);
+      margin-right: 10px;
+      text-decoration: none;
+      box-shadow: var(--orange-glow);
     }
 
-    .btn:hover{background:var(--btn-hover)}
-
-    /* SERVICES */
-    .services ul{
-      list-style:none;
-      display:grid;
-      gap:10px;
-      color:#3a2f28;
+    .hero-img {
+      position: relative;
     }
 
-    /* PROJECTS */
-    .projects{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-      gap:18px;
+    .hero-img img {
+      width: 320px;
+      border-radius: 50%;
+      z-index: 2;
+      position: relative;
     }
 
-    .project-card{
-      background:#fff3e8;
-      border-radius:12px;
-      padding:18px;
-      transition:.2s;
+    .hero-img::before {
+      content: "";
+      position: absolute;
+      inset: -20px;
+      background: radial-gradient(circle, var(--orange), transparent 70%);
+      border-radius: 50%;
+      filter: blur(20px);
+      z-index: 1;
     }
 
-    .project-card:hover{
-      transform:translateY(-4px);
-      box-shadow:0 12px 25px rgba(0,0,0,.15);
+    /* ===== ABOUT ===== */
+    section {
+      padding: 80px 10%;
     }
 
-    .project-card a{
-      color:var(--accent);
-      font-weight:700;
-      font-size:18px;
-      text-decoration:none;
+    .title {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 50px;
     }
 
-    .project-card p{
-      font-size:14px;
-      color:#5b4b40;
-      margin-top:6px;
+    .title span {
+      color: var(--orange);
     }
 
-    /* GALLERY */
-    .gallery{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-      gap:20px;
+    .about {
+      display: flex;
+      gap: 60px;
+      align-items: center;
+      flex-wrap: wrap;
     }
 
-    .thumb{
-      position:relative;
-      height:180px;
-      border-radius:12px;
-      overflow:hidden;
-      background:#ddd;
-      box-shadow:0 8px 20px rgba(0,0,0,.2);
-      text-decoration:none;
+    .about img {
+      width: 260px;
+      border-radius: 50%;
+      box-shadow: var(--orange-glow);
     }
 
-    .thumb img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
+    .about-text h3 {
+      font-size: 1.8rem;
+      margin-bottom: 15px;
     }
 
-    .thumb-label{
-      position:absolute;
-      inset:0;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-weight:800;
-      background:rgba(255,255,255,.85);
-      color:var(--accent);
+    .about-text p {
+      color: #cfcfcf;
+      line-height: 1.7;
+      margin-bottom: 25px;
     }
 
-    @media(max-width:900px){
-      .container{grid-template-columns:1fr}
-      .hero{flex-direction:column}
+    /* ===== SKILLS ===== */
+    .skill {
+      margin-bottom: 20px;
+    }
+
+    .skill span {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 5px;
+    }
+
+    .bar {
+      background: #222;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .bar div {
+      height: 10px;
+      background: var(--orange);
+      box-shadow: var(--orange-glow);
+    }
+
+    /* ===== SERVICES ===== */
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+      gap: 25px;
+    }
+
+    .card {
+      background: #111;
+      padding: 30px;
+      border-radius: 20px;
+      transition: .3s;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--orange-glow);
+    }
+
+    .card i {
+      font-size: 2rem;
+      color: var(--orange);
+      margin-bottom: 15px;
+    }
+
+    .card h4 {
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      color: #cfcfcf;
+      font-size: .95rem;
+      line-height: 1.6;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      color: #777;
+      font-size: .9rem;
+    }
+
+    @media(max-width: 900px) {
+      header {
+        flex-direction: column-reverse;
+        text-align: center;
+      }
     }
   </style>
 </head>
-
 <body>
-<div class="container">
 
-  <!-- SIDEBAR -->
-  <aside class="card">
-    <div class="avatar-container">
-      <img class="avatar-img" src="images/perfil.jfif" alt="Juan David">
+<header>
+  <div class="hero-text">
+    <span>Hola, soy</span>
+    <h1>Juan David DR</h1>
+    <p>
+      Estudiante de Economía y Tecnólogo en Análisis y Desarrollo de Software.
+      Ayudo a personas y negocios a resolver tareas técnicas rápidas:
+      Excel, automatización, páginas web funcionales y sistemas simples.
+    </p>
+
+    <a href="mailto:diazrodriguezuandavi21@gmail.com" class="btn">Contactar ahora</a>
+
+    <div class="socials">
+      <a href="https://github.com/DavidZaid" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="mailto:diazrodriguezuandavi21@gmail.com"><i class="fas fa-envelope"></i></a>
+      <a href="https://wa.me/573024717799" target="_blank"><i class="fab fa-whatsapp"></i></a>
     </div>
-    <div class="name">Juan David DR</div>
-    <div class="role">Economía · Desarrollo de Software</div>
+  </div>
 
-    <div class="section-title">Contacto</div>
-    <ul class="contact-list">
-      <li>📧 <a href="mailto:diazrodriguezuandavi21@gmail.com">Email directo</a></li>
-      <li>📞 +57 302 471 7799</li>
-      <li>📍 Cajicá, Colombia</li>
-      <li>💻 <a href="https://github.com/DavidZaid" target="_blank">GitHub</a></li>
-    </ul>
+  <div class="hero-img">
+    <img src="images/perfil.jpg" alt="Juan David">
+  </div>
+</header>
 
-    <div class="section-title" style="margin-top:20px">Habilidades</div>
-    <ul class="skill-list">
-      <li>✔️ Excel y automatización básica</li>
-      <li>✔️ HTML, CSS, JavaScript</li>
-      <li>✔️ Sistemas CRUD</li>
-      <li>✔️ Node.js, MongoDB</li>
-      <li>✔️ Shopify / Liquid</li>
-    </ul>
-  </aside>
+<section>
+  <h2 class="title">About <span>Me</span></h2>
 
-  <!-- MAIN -->
-  <main>
+  <div class="about">
+    <img src="images/perfil.jpg" alt="Juan David">
 
-    <section class="card hero">
-      <div>
-        <h1>Ayudo a personas y negocios a resolver tareas técnicas rápido</h1>
-        <p>
-          Especializado en conversión de documentos a Excel, automatización de datos,
-          páginas web funcionales y sistemas simples de gestión.
-          Experiencia en proyectos reales y entregables claros.
-        </p>
+    <div class="about-text">
+      <h3>Freelancer Técnico</h3>
+      <p>
+        Trabajo con clientes que necesitan soluciones claras y rápidas.
+        Me enfoco en resultados funcionales, entregables simples y comunicación directa.
+        Ideal para trabajos en Workana y proyectos de corto plazo.
+      </p>
+
+      <div class="skill">
+        <span><b>Excel / Automatización</b><b>80%</b></span>
+        <div class="bar"><div style="width:80%"></div></div>
       </div>
-      <div class="cta">
-        <a class="btn" href="mailto:diazrodriguezuandavi21@gmail.com">Contactar ahora</a>
+
+      <div class="skill">
+        <span><b>HTML / CSS / JavaScript</b><b>75%</b></span>
+        <div class="bar"><div style="width:75%"></div></div>
       </div>
-    </section>
 
-    <section class="card services">
-      <div class="section-title">Servicios para Workana</div>
-      <ul>
-        <li>📊 Conversión de PDF / Word a Excel</li>
-        <li>⚙️ Automatización de hojas de cálculo</li>
-        <li>🌐 Páginas web simples y funcionales</li>
-        <li>🗂️ Sistemas de registro y paneles administrativos</li>
-        <li>🛒 Ajustes en Shopify / Liquid</li>
-      </ul>
-    </section>
-
-    <section class="card">
-      <div class="section-title">Proyectos reales</div>
-      <div class="projects">
-        <div class="project-card">
-          <a href="#galeria">LogiPlanner</a>
-          <p>Sistema de inventarios en Node.js y MongoDB. Control y organización de datos.</p>
-        </div>
-        <div class="project-card">
-          <a href="#galeria">Web Conjunto Residencial Nogal</a>
-          <p>Página web funcional con módulos informativos y sistema de acceso. ✔️ Cliente real.</p>
-        </div>
+      <div class="skill">
+        <span><b>Node.js / MongoDB</b><b>65%</b></span>
+        <div class="bar"><div style="width:65%"></div></div>
       </div>
-    </section>
 
-    <section class="card" id="galeria">
-      <div class="section-title">Muestras de trabajo (PDF)</div>
-      <div class="gallery">
-        <a class="thumb" href="docts/LogiPlanner.pdf" target="_blank">
-          <img src="images/Captura de pantalla (1505).png">
-          <div class="thumb-label">LogiPlanner</div>
-        </a>
-        <a class="thumb" href="docts/Pharmaboot.pdf" target="_blank">
-          <img src="images/Captura de pantalla (1504).png">
-          <div class="thumb-label">Pharmaboot</div>
-        </a>
-        <a class="thumb" href="docts/webnl.pdf" target="_blank">
-          <img src="images/Captura de pantalla (1523).png">
-          <div class="thumb-label">Web Nogal</div>
-        </a>
+      <div class="skill">
+        <span><b>Shopify / Liquid</b><b>70%</b></span>
+        <div class="bar"><div style="width:70%"></div></div>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
 
-  </main>
-</div>
+<section>
+  <h2 class="title">Servicios <span>Rápidos</span></h2>
+
+  <div class="services">
+    <div class="card">
+      <i class="fas fa-file-excel"></i>
+      <h4>Conversión a Excel</h4>
+      <p>PDF, Word, imágenes o notas a hojas de cálculo limpias y ordenadas.</p>
+    </div>
+
+    <div class="card">
+      <i class="fas fa-gear"></i>
+      <h4>Automatización</h4>
+      <p>Macros simples, validaciones y organización de datos.</p>
+    </div>
+
+    <div class="card">
+      <i class="fas fa-code"></i>
+      <h4>Webs funcionales</h4>
+      <p>Páginas rápidas, claras y listas para producción.</p>
+    </div>
+
+    <div class="card">
+      <i class="fas fa-shop"></i>
+      <h4>Shopify / Liquid</h4>
+      <p>Ajustes, secciones personalizadas y correcciones.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2026 Juan David DR · Freelancer Técnico
+</footer>
+
 </body>
 </html>
