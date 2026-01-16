@@ -2,243 +2,45 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <title>Juan David Diaz Rodriguez | Freelancer Técnico</title>
-  <meta name="description" content="Freelancer técnico en automatización, Excel y desarrollo web funcional. Soluciones rápidas y claras.">
+  <title>Webs + Automatización + WhatsApp IA | Juan David</title>
+  <meta name="description" content="Diseño páginas web, automatización de procesos y WhatsApp IA para negocios. Más clientes, menos trabajo manual.">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Fuentes -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
-  <!-- Iconos -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
 
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
-    }
+    *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
+    body{background:#0b0b0b;color:#fff}
+    :root{--orange:#ff7a00;--glow:0 0 30px rgba(255,122,0,.6)}
 
-    body {
-      background: #0b0b0b;
-      color: #fff;
-    }
+    header{min-height:100vh;display:flex;align-items:center;justify-content:space-between;padding:60px 10%;gap:40px}
+    h1{font-size:3.1rem}
+    p{color:#cfcfcf;line-height:1.7}
+    .btn{display:inline-block;margin-top:25px;padding:15px 36px;background:var(--orange);color:#000;
+      border-radius:40px;font-weight:600;text-decoration:none;box-shadow:var(--glow)}
+    .hero-img img{width:320px;border-radius:50%;z-index:2;position:relative}
+    .hero-img{position:relative}
+    .hero-img::before{content:"";position:absolute;inset:-20px;background:radial-gradient(circle,var(--orange),transparent 70%);
+      filter:blur(20px);border-radius:50%}
 
-    :root {
-      --orange: #ff7a00;
-      --orange-glow: 0 0 30px rgba(255,122,0,.6);
-    }
+    section{padding:90px 10%}
+    .title{text-align:center;font-size:2.4rem;margin-bottom:60px}
+    .title span{color:var(--orange)}
 
-    header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 60px 10%;
-      min-height: 100vh;
-      gap: 40px;
-    }
+    .services,.projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:30px}
+    .card{background:#111;padding:30px;border-radius:20px;transition:.3s}
+    .card:hover{transform:translateY(-8px);box-shadow:var(--glow)}
+    .card i{font-size:2rem;color:var(--orange);margin-bottom:15px}
+    .card a{color:var(--orange);text-decoration:none;font-weight:600}
 
-    .hero-text {
-      max-width: 600px;
-    }
+    footer{text-align:center;padding:25px;color:#777}
 
-    .hero-text span {
-      color: var(--orange);
-      font-weight: 600;
-    }
-
-    .hero-text h1 {
-      font-size: 3.2rem;
-      margin: 15px 0;
-    }
-
-    .hero-text p {
-      color: #cfcfcf;
-      line-height: 1.7;
-      margin-bottom: 30px;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 14px 34px;
-      background: var(--orange);
-      color: #000;
-      border-radius: 40px;
-      font-weight: 600;
-      text-decoration: none;
-      box-shadow: var(--orange-glow);
-      transition: .3s;
-    }
-
-    .btn:hover {
-      transform: scale(1.05);
-    }
-
-    .socials {
-      margin-top: 25px;
-    }
-
-    .socials a {
-      display: inline-flex;
-      justify-content: center;
-      align-items: center;
-      width: 40px;
-      height: 40px;
-      background: #111;
-      border-radius: 50%;
-      color: var(--orange);
-      margin-right: 10px;
-      text-decoration: none;
-      box-shadow: var(--orange-glow);
-    }
-
-    .hero-img {
-      position: relative;
-    }
-
-    .hero-img img {
-      width: 320px;
-      border-radius: 50%;
-      position: relative;
-      z-index: 2;
-    }
-
-    .hero-img::before {
-      content: "";
-      position: absolute;
-      inset: -20px;
-      background: radial-gradient(circle, var(--orange), transparent 70%);
-      border-radius: 50%;
-      filter: blur(20px);
-      z-index: 1;
-    }
-
-    section {
-      padding: 80px 10%;
-    }
-
-    .title {
-      text-align: center;
-      font-size: 2.5rem;
-      margin-bottom: 50px;
-    }
-
-    .title span {
-      color: var(--orange);
-    }
-
-    .about {
-      display: flex;
-      gap: 60px;
-      align-items: center;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
-    .about img {
-      width: 260px;
-      border-radius: 50%;
-      box-shadow: var(--orange-glow);
-    }
-
-    .about-text {
-      max-width: 600px;
-    }
-
-    .about-text h3 {
-      font-size: 1.8rem;
-      margin-bottom: 15px;
-    }
-
-    .about-text p {
-      color: #cfcfcf;
-      line-height: 1.7;
-      margin-bottom: 25px;
-    }
-
-    .skill {
-      margin-bottom: 20px;
-    }
-
-    .skill span {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 5px;
-      font-size: .9rem;
-    }
-
-    .bar {
-      background: #222;
-      border-radius: 10px;
-      overflow: hidden;
-    }
-
-    .bar div {
-      height: 10px;
-      background: var(--orange);
-      box-shadow: var(--orange-glow);
-    }
-
-    .services {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
-      gap: 25px;
-    }
-
-    .card {
-      background: #111;
-      padding: 30px;
-      border-radius: 20px;
-      transition: .3s;
-    }
-
-    .card:hover {
-      transform: translateY(-8px);
-      box-shadow: var(--orange-glow);
-    }
-
-    .card i {
-      font-size: 2rem;
-      color: var(--orange);
-      margin-bottom: 15px;
-    }
-
-    .card h4 {
-      margin-bottom: 10px;
-    }
-
-    .card p {
-      color: #cfcfcf;
-      font-size: .95rem;
-      line-height: 1.6;
-    }
-
-    footer {
-      text-align: center;
-      padding: 25px;
-      color: #777;
-      font-size: .9rem;
-    }
-
-    @media(max-width: 900px) {
-      header {
-        flex-direction: column-reverse;
-        text-align: center;
-        padding: 40px 6%;
-      }
-
-      .hero-text h1 {
-        font-size: 2.3rem;
-      }
-
-      .hero-img img {
-        width: 240px;
-      }
-
-      section {
-        padding: 60px 6%;
-      }
+    @media(max-width:900px){
+      header{flex-direction:column-reverse;text-align:center;padding:40px 6%}
+      h1{font-size:2.2rem}
+      .hero-img img{width:240px}
+      section{padding:60px 6%}
     }
   </style>
 </head>
@@ -246,22 +48,14 @@
 <body>
 
 <header>
-  <div class="hero-text">
-    <span>Hola, soy</span>
-    <h1>Juan David Diaz Rodriguez</h1>
+  <div>
+    <span style="color:#ff7a00;font-weight:600">Ayudo a negocios a vender más</span>
+    <h1>Páginas web, automatización y WhatsApp IA</h1>
     <p>
-      Estudiante de Economía y Tecnólogo en Análisis y Desarrollo de Software.
-      Ayudo a personas y negocios a resolver tareas técnicas rápidas:
-      Excel, automatización, páginas web funcionales y sistemas simples.
+      Diseño páginas web modernas y automatizo procesos como reservas, formularios y atención por WhatsApp
+      para que tu negocio ahorre tiempo y consiga más clientes.
     </p>
-
-    <a href="mailto:diazrodriguezuandavi21@gmail.com" class="btn">Contactar ahora</a>
-
-    <div class="socials">
-      <a href="https://github.com/DavidZaid" target="_blank"><i class="fab fa-github"></i></a>
-      <a href="mailto:diazrodriguezuandavi21@gmail.com"><i class="fas fa-envelope"></i></a>
-      <a href="https://wa.me/573024717799" target="_blank"><i class="fab fa-whatsapp"></i></a>
-    </div>
+    <a class="btn" href="https://wa.me/573024717799" target="_blank">Hablar por WhatsApp</a>
   </div>
 
   <div class="hero-img">
@@ -269,8 +63,62 @@
   </div>
 </header>
 
+<section>
+  <h2 class="title">¿Qué <span>hago</span>?</h2>
+
+  <div class="services">
+    <div class="card">
+      <i class="fas fa-globe"></i>
+      <h4>Páginas web profesionales</h4>
+      <p>Webs rápidas, modernas y optimizadas para negocios pequeños y grandes.</p>
+    </div>
+
+    <div class="card">
+      <i class="fas fa-gear"></i>
+      <h4>Automatización</h4>
+      <p>Reservas, formularios, correos automáticos y procesos sin trabajo manual.</p>
+    </div>
+
+    <div class="card">
+      <i class="fab fa-whatsapp"></i>
+      <h4>WhatsApp IA</h4>
+      <p>Respuestas automáticas, atención 24/7 y captación de clientes.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2 class="title">Proyectos <span>reales</span></h2>
+
+  <div class="projects">
+    <div class="card">
+      <h4>CRM de clientes</h4>
+      <p>Sistema para gestión y seguimiento de clientes.</p>
+      <a href="https://crm-frontend-peach-psi.vercel.app/clientes" target="_blank">Ver proyecto →</a>
+    </div>
+
+    <div class="card">
+      <h4>LogiPlanner</h4>
+      <p>Plataforma web para planificación y control logístico.</p>
+      <a href="https://proyecto-logiplanner-production.up.railway.app/index.php" target="_blank">Ver proyecto →</a>
+    </div>
+
+    <div class="card">
+      <h4>Conjunto Residencial Nogal</h4>
+      <p>Web con reservas automatizadas y notificaciones por correo.</p>
+      <a href="https://conjuntonogalhfr.com/" target="_blank">Ver proyecto →</a>
+    </div>
+  </div>
+</section>
+
+<section style="text-align:center">
+  <h2 class="title">¿Hablamos?</h2>
+  <p>Cuéntame tu negocio y te propongo una solución clara y sin compromiso.</p>
+  <a class="btn" href="https://wa.me/573024717799" target="_blank">Escribirme ahora</a>
+</section>
+
 <footer>
-  © 2026 Juan David DR · Freelancer Técnico
+  © 2026 · Juan David Diaz Rodriguez · Web & Automatización
 </footer>
 
 </body>
