@@ -21,7 +21,15 @@
       border-radius:40px;font-weight:600;text-decoration:none;box-shadow:var(--glow)}
 
     .hero-img{position:relative}
-    .hero-img img{width:320px;border-radius:50%;position:relative;z-index:2}
+    .hero-img img {
+  width: 300px;
+  height: 300px;    /* El alto debe ser igual al ancho */
+  object-fit: cover; /* Esto evita que tu cara se vea estirada */
+  object-position: top; /* Centra el recorte en tu cara */
+  border-radius: 50%;
+  position: relative;
+  z-index: 2;
+}
     .hero-img::before{content:"";position:absolute;inset:-20px;
       background:radial-gradient(circle,var(--orange),transparent 70%);
       filter:blur(20px);border-radius:50%}
