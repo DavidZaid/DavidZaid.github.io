@@ -14,7 +14,14 @@
     body{background:#0b0b0b;color:#fff}
     :root{--orange:#ff7a00;--glow:0 0 30px rgba(255,122,0,.6)}
 
-    header{min-height:100vh;display:flex;align-items:center;justify-content:space-between;padding:60px 10%;gap:40px}
+header {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 40px 10%; /* Bajamos de 60px a 40px el padding superior */
+  gap: 40px;
+}
     h1{font-size:3.1rem}
     p{color:#cfcfcf;line-height:1.7}
     .btn{display:inline-block;margin-top:25px;padding:15px 36px;background:var(--orange);color:#000;
@@ -22,10 +29,12 @@
 
     .hero-img{position:relative}
     .hero-img img {
-  width: 300px;
-  height: 300px;    /* El alto debe ser igual al ancho */
-  object-fit: cover; /* Esto evita que tu cara se vea estirada */
-  object-position: top; /* Centra el recorte en tu cara */
+ width: 300px;
+  height: 300px;
+  object-fit: cover;
+  /* Ajusta el segundo valor (porcentaje) para mover la foto arriba o abajo */
+  /* 20% sube la imagen, 50% es el centro, 80% la baja */
+  object-position: center 25%; 
   border-radius: 50%;
   position: relative;
   z-index: 2;
