@@ -14,13 +14,13 @@
     body{background:#0b0b0b;color:#fff}
     :root{--orange:#ff7a00;--glow:0 0 30px rgba(255,122,0,.6)}
 
-    header {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 40px 10%;
-      gap: 40px;
+    header{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:40px 10%;
+      gap:40px
     }
 
     h1{font-size:3.1rem}
@@ -38,6 +38,24 @@
       box-shadow:var(--glow)
     }
 
+    .socials{
+      margin-top:18px;
+      display:flex;
+      gap:16px
+    }
+
+    .socials a{
+      color:#fff;
+      font-size:1.3rem;
+      opacity:.75;
+      transition:.3s
+    }
+
+    .socials a:hover{
+      color:var(--orange);
+      opacity:1
+    }
+
     .hero-img{position:relative}
     .hero-img img{
       width:310px;
@@ -46,7 +64,7 @@
       object-position:center 25%;
       border-radius:50%;
       position:relative;
-      z-index:2;
+      z-index:2
     }
 
     .hero-img::before{
@@ -68,7 +86,7 @@
 
     .title span{color:var(--orange)}
 
-    .services,.projects{
+    .services,.projects,.benefits{
       display:grid;
       grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
       gap:30px
@@ -87,7 +105,7 @@
     }
 
     .card i{
-      font-size:2rem;
+      font-size:1.9rem;
       color:var(--orange);
       margin-bottom:15px
     }
@@ -118,6 +136,7 @@
         text-align:center;
         padding:40px 6%
       }
+      .socials{justify-content:center}
       h1{font-size:2.2rem}
       .hero-img img{width:240px}
       section{padding:60px 6%}
@@ -143,11 +162,21 @@
     </p>
 
     <a class="btn" href="https://wa.me/573024717799" target="_blank">
-    Cotizar mi página web
+      Cotizar mi página web
     </a>
+
+    <div class="socials">
+      <a href="https://instagram.com/TU_INSTAGRAM" target="_blank" aria-label="Instagram">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="https://linkedin.com/in/TU_LINKEDIN" target="_blank" aria-label="LinkedIn">
+        <i class="fab fa-linkedin"></i>
+      </a>
+    </div>
+
     <p style="margin-top:12px;font-size:0.9rem;color:#aaa">
-  Respuesta rápida · Propuesta clara · Sin compromiso
-</p>
+      Respuesta rápida · Propuesta clara · Sin compromiso
+    </p>
   </div>
 
   <div class="hero-img">
@@ -180,52 +209,62 @@
 </section>
 
 <section>
+  <h2 class="title">¿Por qué <span>trabajar conmigo</span>?</h2>
+
+  <div class="benefits">
+    <div class="card">
+      <i class="fas fa-bolt"></i>
+      <h4>Enfoque en resultados</h4>
+      <p>Webs pensadas para generar contacto y clientes.</p>
+    </div>
+
+    <div class="card">
+      <i class="fas fa-mobile-screen-button"></i>
+      <h4>Diseño adaptable</h4>
+      <p>Tu web se verá bien en celular, tablet y computador.</p>
+    </div>
+
+    <div class="card">
+      <i class="fas fa-comments"></i>
+      <h4>Comunicación clara</h4>
+      <p>Sin tecnicismos innecesarios ni procesos confusos.</p>
+    </div>
+  </div>
+</section>
+
+<section>
   <h2 class="title">Mis <span>Proyectos</span></h2>
 
   <div class="projects">
 
-<div class="card">
-  <img src="images/Empanadas.png" alt="Empanadas Artesanales">
-  <h4>Empanadas Artesanales</h4>
-  <p>
-  Página web para negocio gastronómico,
-  enfocada en mostrar el menú y generar pedidos por WhatsApp.
-</p>
-  <a href="https://empanada-silk.vercel.app/" target="_blank">
-    Ver proyecto →
-  </a>
-</div>
+    <div class="card">
+      <img src="images/Empanadas.png" alt="Empanadas Artesanales">
+      <h4>Empanadas Artesanales</h4>
+      <p>Página web para negocio gastronómico enfocada en pedidos por WhatsApp.</p>
+      <a href="https://empanada-silk.vercel.app/" target="_blank">Ver proyecto →</a>
+    </div>
 
-  <div class="card">
+    <div class="card">
       <img src="images/Conjunto.png" alt="Conjunto Residencial Nogal">
       <h4>Conjunto Residencial Nogal</h4>
       <p>Web informativa con sistema de reservas automatizado.</p>
-      <a href="https://conjuntonogalhfr.com/" target="_blank">
-        Ver proyecto →
-      </a>
+      <a href="https://conjuntonogalhfr.com/" target="_blank">Ver proyecto →</a>
     </div>
-    
-    
+
     <div class="card">
       <img src="images/CRM.png" alt="CRM de clientes">
       <h4>CRM de clientes</h4>
-      <p>Sistema web para gestión y seguimiento de clientes, desarrollado a medida.</p>
-      <a href="https://crm-frontend-peach-psi.vercel.app/clientes" target="_blank">
-        Ver proyecto →
-      </a>
+      <p>Sistema web para gestión y seguimiento de clientes.</p>
+      <a href="https://crm-frontend-peach-psi.vercel.app/clientes" target="_blank">Ver proyecto →</a>
     </div>
 
     <div class="card">
       <img src="images/LogiPlanner.png" alt="LogiPlanner">
       <h4>LogiPlanner</h4>
-      <p>Plataforma web para planificación logística y gestión de procesos.</p>
-      <a href="https://proyecto-logiplanner-production.up.railway.app/index.php" target="_blank">
-        Ver proyecto →
-      </a>
+      <p>Plataforma web para planificación logística.</p>
+      <a href="https://proyecto-logiplanner-production.up.railway.app/index.php" target="_blank">Ver proyecto →</a>
     </div>
 
-  
-    
   </div>
 </section>
 
