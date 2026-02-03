@@ -2,8 +2,8 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <title>Webs + Automatización + WhatsApp IA | Juan David</title>
-  <meta name="description" content="Diseño páginas web, automatización de procesos y WhatsApp IA para negocios.">
+  <title>Webs profesionales y soluciones web | Juan David</title>
+  <meta name="description" content="Diseño páginas web profesionales y soluciones web para negocios, desde páginas informativas hasta sistemas más completos.">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -14,57 +14,110 @@
     body{background:#0b0b0b;color:#fff}
     :root{--orange:#ff7a00;--glow:0 0 30px rgba(255,122,0,.6)}
 
-header {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 40px 10%; /* Bajamos de 60px a 40px el padding superior */
-  gap: 40px;
-}
+    header {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 40px 10%;
+      gap: 40px;
+    }
+
     h1{font-size:3.1rem}
     p{color:#cfcfcf;line-height:1.7}
-    .btn{display:inline-block;margin-top:25px;padding:15px 36px;background:var(--orange);color:#000;
-      border-radius:40px;font-weight:600;text-decoration:none;box-shadow:var(--glow)}
+
+    .btn{
+      display:inline-block;
+      margin-top:25px;
+      padding:15px 36px;
+      background:var(--orange);
+      color:#000;
+      border-radius:40px;
+      font-weight:600;
+      text-decoration:none;
+      box-shadow:var(--glow)
+    }
 
     .hero-img{position:relative}
-    .hero-img img {
- width: 310px;
-  height: 325px;
-  object-fit: cover;
-  /* Ajusta el segundo valor (porcentaje) para mover la foto arriba o abajo */
-  /* 20% sube la imagen, 50% es el centro, 80% la baja */
-  object-position: center 25%; 
-  border-radius: 50%;
-  position: relative;
-  z-index: 2;
-}
-    .hero-img::before{content:"";position:absolute;inset:-20px;
+    .hero-img img{
+      width:310px;
+      height:325px;
+      object-fit:cover;
+      object-position:center 25%;
+      border-radius:50%;
+      position:relative;
+      z-index:2;
+    }
+
+    .hero-img::before{
+      content:"";
+      position:absolute;
+      inset:-20px;
       background:radial-gradient(circle,var(--orange),transparent 70%);
-      filter:blur(20px);border-radius:50%}
+      filter:blur(20px);
+      border-radius:50%
+    }
 
     section{padding:90px 10%}
-    .title{text-align:center;font-size:2.4rem;margin-bottom:60px}
+
+    .title{
+      text-align:center;
+      font-size:2.4rem;
+      margin-bottom:60px
+    }
+
     .title span{color:var(--orange)}
 
-    .services,.projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:30px}
-    .card{background:#111;padding:30px;border-radius:20px;transition:.3s}
-    .card:hover{transform:translateY(-8px);box-shadow:var(--glow)}
-    .card i{font-size:2rem;color:var(--orange);margin-bottom:15px}
+    .services,.projects{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:30px
+    }
+
+    .card{
+      background:#111;
+      padding:30px;
+      border-radius:20px;
+      transition:.3s
+    }
+
+    .card:hover{
+      transform:translateY(-8px);
+      box-shadow:var(--glow)
+    }
+
+    .card i{
+      font-size:2rem;
+      color:var(--orange);
+      margin-bottom:15px
+    }
+
     .card img{
-  width:100%;
-  height:180px;
-  object-fit:cover;
-  border-radius:15px;
-  margin-bottom:15px;
-}
+      width:100%;
+      height:180px;
+      object-fit:cover;
+      border-radius:15px;
+      margin-bottom:15px
+    }
 
-    .card a{color:var(--orange);text-decoration:none;font-weight:600}
+    .card a{
+      color:var(--orange);
+      text-decoration:none;
+      font-weight:600
+    }
 
-    footer{text-align:center;padding:25px;color:#777}
+    footer{
+      text-align:center;
+      padding:25px;
+      color:#777
+    }
 
     @media(max-width:900px){
-      header{flex-direction:column-reverse;text-align:center;padding:40px 6%}
+      header{
+        flex-direction:column-reverse;
+        text-align:center;
+        padding:40px 6%
+      }
       h1{font-size:2.2rem}
       .hero-img img{width:240px}
       section{padding:60px 6%}
@@ -76,13 +129,19 @@ header {
 
 <header>
   <div>
-    <span style="color:#ff7a00;font-weight:600">Ayudo a negocios a vender más</span>
-    <h1>Páginas web, automatización y WhatsApp IA</h1>
+    <span style="color:#ff7a00;font-weight:600">
+      Desarrollo web para negocios
+    </span>
+
+    <h1>Diseño páginas web profesionales y soluciones web</h1>
+
     <p>
-      Diseño páginas web modernas y automatizo procesos como reservas,
-      formularios y atención por WhatsApp para que tu negocio ahorre tiempo
-      y consiga más clientes.
+      Desde páginas informativas claras y modernas,
+      hasta sistemas web más completos según las necesidades del negocio.<br><br>
+      Trabajo con negocios que quieren verse profesionales hoy
+      y tener la base para crecer mañana.
     </p>
+
     <a class="btn" href="https://wa.me/573024717799" target="_blank">
       Hablar por WhatsApp
     </a>
@@ -99,20 +158,20 @@ header {
   <div class="services">
     <div class="card">
       <i class="fas fa-globe"></i>
-      <h4>Páginas web</h4>
-      <p>Webs modernas y optimizadas para negocios.</p>
+      <h4>Páginas web profesionales</h4>
+      <p>Webs modernas, rápidas y optimizadas para celular.</p>
     </div>
 
     <div class="card">
       <i class="fas fa-gear"></i>
-      <h4>Automatización</h4>
-      <p>Reservas, correos y procesos automáticos.</p>
+      <h4>Sistemas y automatización</h4>
+      <p>Reservas, formularios, paneles y procesos web a medida.</p>
     </div>
 
     <div class="card">
-      <i class="fab fa-whatsapp"></i>
-      <h4>WhatsApp IA</h4>
-      <p>Atención automática y captación de clientes.</p>
+      <i class="fas fa-code"></i>
+      <h4>Proyectos web funcionales</h4>
+      <p>Desarrollo de plataformas y sistemas según el caso.</p>
     </div>
   </div>
 </section>
@@ -125,7 +184,7 @@ header {
     <div class="card">
       <img src="images/CRM.png" alt="CRM de clientes">
       <h4>CRM de clientes</h4>
-      <p>Sistema web para gestión y seguimiento de clientes.</p>
+      <p>Sistema web para gestión y seguimiento de clientes, desarrollado a medida.</p>
       <a href="https://crm-frontend-peach-psi.vercel.app/clientes" target="_blank">
         Ver proyecto →
       </a>
@@ -134,7 +193,7 @@ header {
     <div class="card">
       <img src="images/LogiPlanner.png" alt="LogiPlanner">
       <h4>LogiPlanner</h4>
-      <p>Plataforma web para planificación logística.</p>
+      <p>Plataforma web para planificación logística y gestión de procesos.</p>
       <a href="https://proyecto-logiplanner-production.up.railway.app/index.php" target="_blank">
         Ver proyecto →
       </a>
@@ -143,7 +202,7 @@ header {
     <div class="card">
       <img src="images/Conjunto.png" alt="Conjunto Residencial Nogal">
       <h4>Conjunto Residencial Nogal</h4>
-      <p>Web con reservas automatizadas.</p>
+      <p>Web informativa con sistema de reservas automatizado.</p>
       <a href="https://conjuntonogalhfr.com/" target="_blank">
         Ver proyecto →
       </a>
@@ -154,7 +213,7 @@ header {
 
 <section style="text-align:center">
   <h2 class="title">¿Hablamos?</h2>
-  <p>Cuéntame tu negocio y te propongo una solución clara.</p>
+  <p>Cuéntame tu negocio y te propongo una solución clara y acorde a lo que necesitas.</p>
   <a class="btn" href="https://wa.me/573024717799" target="_blank">
     Escribirme ahora
   </a>
