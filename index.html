@@ -20,15 +20,15 @@
       align-items:center;
       justify-content:space-between;
       padding:40px 10%;
-      gap:40px
+      gap:60px
     }
 
-    h1{font-size:3.1rem}
+    h1{font-size:3.1rem;margin:18px 0}
     p{color:#cfcfcf;line-height:1.7}
 
     .btn{
       display:inline-block;
-      margin-top:25px;
+      margin-top:32px;
       padding:15px 36px;
       background:var(--orange);
       color:#000;
@@ -38,25 +38,11 @@
       box-shadow:var(--glow)
     }
 
-    .socials{
-      margin-top:18px;
-      display:flex;
-      gap:16px
+    .hero-img{
+      position:relative;
+      text-align:center
     }
 
-    .socials a{
-      color:#fff;
-      font-size:1.3rem;
-      opacity:.75;
-      transition:.3s
-    }
-
-    .socials a:hover{
-      color:var(--orange);
-      opacity:1
-    }
-
-    .hero-img{position:relative}
     .hero-img img{
       width:310px;
       height:325px;
@@ -74,6 +60,25 @@
       background:radial-gradient(circle,var(--orange),transparent 70%);
       filter:blur(20px);
       border-radius:50%
+    }
+
+    .hero-socials{
+      margin-top:22px;
+      display:flex;
+      justify-content:center;
+      gap:18px
+    }
+
+    .hero-socials a{
+      color:#fff;
+      font-size:1.35rem;
+      opacity:.75;
+      transition:.3s
+    }
+
+    .hero-socials a:hover{
+      color:var(--orange);
+      opacity:1
     }
 
     section{padding:90px 10%}
@@ -136,9 +141,8 @@
         text-align:center;
         padding:40px 6%
       }
-      .socials{justify-content:center}
       h1{font-size:2.2rem}
-      .hero-img img{width:240px}
+      .hero-img img{width:240px;height:250px}
       section{padding:60px 6%}
     }
   </style>
@@ -165,7 +169,15 @@
       Cotizar mi página web
     </a>
 
-    <div class="socials">
+    <p style="margin-top:18px;font-size:0.9rem;color:#aaa">
+      Respuesta rápida · Propuesta clara · Sin compromiso
+    </p>
+  </div>
+
+  <div class="hero-img">
+    <img src="images/kjddr.png" alt="Juan David Diaz Rodriguez">
+
+    <div class="hero-socials">
       <a href="https://instagram.com/TU_INSTAGRAM" target="_blank" aria-label="Instagram">
         <i class="fab fa-instagram"></i>
       </a>
@@ -173,16 +185,12 @@
         <i class="fab fa-linkedin"></i>
       </a>
     </div>
-
-    <p style="margin-top:12px;font-size:0.9rem;color:#aaa">
-      Respuesta rápida · Propuesta clara · Sin compromiso
-    </p>
-  </div>
-
-  <div class="hero-img">
-    <img src="images/kjddr.png" alt="Juan David Diaz Rodriguez">
   </div>
 </header>
+
+</body>
+</html>
+
 
 <section>
   <h2 class="title">¿Qué <span>hago</span>?</h2>
