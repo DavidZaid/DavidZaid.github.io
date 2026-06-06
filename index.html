@@ -1,292 +1,694 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <title>Webs profesionales y soluciones web | Juan David</title>
-  <meta name="description" content="Diseño páginas web profesionales y soluciones web para negocios, desde páginas informativas hasta sistemas más completos.">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Juan David Díaz · Desarrollo Web</title>
+<meta name="description" content="Desarrollo plataformas web profesionales para negocios y conjuntos residenciales. React, Node.js, bases de datos. Colombia."/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#080808;
+  --bg2:#0f0f0f;
+  --bg3:#161616;
+  --border:#222;
+  --border2:#2a2a2a;
+  --text:#f0ede6;
+  --muted:#888;
+  --accent:#c9a84c;
+  --accent2:#e8c97a;
+  --white:#ffffff;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-size:16px;line-height:1.6;overflow-x:hidden}
 
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+/* NOISE OVERLAY */
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events:none;
+  z-index:0;
+  opacity:0.4;
+}
 
-  <style>
-    *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
-    body{background:#0b0b0b;color:#fff}
-    :root{--orange:#ff7a00;--glow:0 0 30px rgba(255,122,0,.6)}
+/* NAV */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:20px 6%;
+  border-bottom:1px solid transparent;
+  transition:all .3s;
+  backdrop-filter:blur(0px);
+}
+nav.scrolled{
+  background:rgba(8,8,8,0.92);
+  border-bottom-color:var(--border);
+  backdrop-filter:blur(20px);
+}
+.nav-logo{
+  font-family:'Syne',sans-serif;
+  font-weight:800;font-size:1.1rem;
+  color:var(--accent);
+  letter-spacing:0.02em;
+  text-decoration:none;
+}
+.nav-links{display:flex;gap:32px;list-style:none}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:.85rem;font-weight:500;letter-spacing:.05em;text-transform:uppercase;transition:.2s}
+.nav-links a:hover{color:var(--text)}
+.nav-cta{
+  background:var(--accent);color:#000;
+  padding:9px 22px;border-radius:3px;
+  font-size:.82rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  text-decoration:none;transition:.2s;
+}
+.nav-cta:hover{background:var(--accent2)}
 
-    header{
-      min-height:100vh;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      padding:40px 10%;
-      gap:60px
-    }
+/* HERO */
+.hero{
+  min-height:100vh;
+  display:flex;align-items:center;
+  padding:120px 6% 80px;
+  position:relative;
+  overflow:hidden;
+}
+.hero-bg-line{
+  position:absolute;top:0;right:10%;
+  width:1px;height:100%;
+  background:linear-gradient(to bottom,transparent,var(--border),transparent);
+}
+.hero-bg-line2{
+  position:absolute;top:0;right:30%;
+  width:1px;height:100%;
+  background:linear-gradient(to bottom,transparent,var(--border2),transparent);
+  opacity:.5;
+}
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;width:100%;max-width:1200px;margin:0 auto}
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:10px;
+  font-size:.78rem;font-weight:500;letter-spacing:.15em;text-transform:uppercase;
+  color:var(--accent);margin-bottom:28px;
+}
+.hero-eyebrow::before{content:"";display:block;width:32px;height:1px;background:var(--accent)}
+.hero h1{
+  font-family:'Syne',sans-serif;
+  font-size:clamp(2.6rem,5vw,4.2rem);
+  font-weight:800;line-height:1.05;
+  letter-spacing:-0.02em;
+  margin-bottom:28px;
+}
+.hero h1 span{color:var(--accent)}
+.hero-desc{
+  font-size:1.05rem;color:var(--muted);
+  max-width:480px;line-height:1.8;margin-bottom:44px;
+}
+.hero-actions{display:flex;gap:16px;flex-wrap:wrap}
+.btn-primary{
+  background:var(--accent);color:#000;
+  padding:14px 32px;border-radius:3px;
+  font-weight:700;font-size:.9rem;letter-spacing:.05em;text-transform:uppercase;
+  text-decoration:none;transition:.2s;display:inline-block;
+}
+.btn-primary:hover{background:var(--accent2);transform:translateY(-1px)}
+.btn-outline{
+  border:1px solid var(--border2);color:var(--text);
+  padding:14px 32px;border-radius:3px;
+  font-weight:500;font-size:.9rem;letter-spacing:.03em;
+  text-decoration:none;transition:.2s;display:inline-block;
+}
+.btn-outline:hover{border-color:var(--accent);color:var(--accent)}
 
-    h1{font-size:3.1rem;margin:18px 0}
-    p{color:#cfcfcf;line-height:1.7}
+/* AVATAR */
+.hero-visual{position:relative;display:flex;justify-content:center}
+.avatar-wrap{
+  position:relative;
+  width:320px;height:400px;
+}
+.avatar-frame{
+  width:100%;height:100%;
+  border:1px solid var(--border2);
+  border-radius:4px;
+  background:var(--bg3);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:16px;
+  position:relative;
+  overflow:hidden;
+}
+.avatar-frame::before{
+  content:"";
+  position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,transparent,var(--accent),transparent);
+}
+.avatar-initials{
+  width:100px;height:100px;border-radius:50%;
+  border:2px solid var(--border2);
+  background:var(--bg);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Syne',sans-serif;font-size:2rem;font-weight:800;
+  color:var(--accent);letter-spacing:.1em;
+}
+.avatar-name{font-family:'Syne',sans-serif;font-weight:700;font-size:1.1rem;letter-spacing:.05em}
+.avatar-role{font-size:.82rem;color:var(--muted);letter-spacing:.08em;text-transform:uppercase}
+.avatar-hint{font-size:.75rem;color:var(--border2);position:absolute;bottom:20px;letter-spacing:.05em}
+.avatar-corner{
+  position:absolute;width:20px;height:20px;
+  border-color:var(--accent);border-style:solid;opacity:.5;
+}
+.avatar-corner.tl{top:-1px;left:-1px;border-width:2px 0 0 2px}
+.avatar-corner.tr{top:-1px;right:-1px;border-width:2px 2px 0 0}
+.avatar-corner.bl{bottom:-1px;left:-1px;border-width:0 0 2px 2px}
+.avatar-corner.br{bottom:-1px;right:-1px;border-width:0 2px 2px 0}
+.hero-stats{
+  display:flex;gap:40px;margin-top:48px;
+  padding-top:48px;
+  border-top:1px solid var(--border);
+}
+.stat-num{
+  font-family:'Syne',sans-serif;
+  font-size:2rem;font-weight:800;color:var(--accent);display:block;
+}
+.stat-label{font-size:.78rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
 
-    .btn{
-      display:inline-block;
-      margin-top:32px;
-      padding:15px 36px;
-      background:var(--orange);
-      color:#000;
-      border-radius:40px;
-      font-weight:600;
-      text-decoration:none;
-      box-shadow:var(--glow)
-    }
+/* SECTIONS */
+section{padding:100px 6%;position:relative}
+.section-inner{max-width:1200px;margin:0 auto}
+.section-label{
+  display:inline-flex;align-items:center;gap:10px;
+  font-size:.75rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--accent);margin-bottom:20px;
+}
+.section-label::before{content:"";display:block;width:24px;height:1px;background:var(--accent)}
+.section-title{
+  font-family:'Syne',sans-serif;
+  font-size:clamp(2rem,4vw,3rem);
+  font-weight:800;line-height:1.1;letter-spacing:-0.02em;
+  margin-bottom:60px;
+}
+.section-divider{width:100%;height:1px;background:var(--border);margin-bottom:100px}
 
-    .hero-img{
-      position:relative;
-      text-align:center
-    }
+/* SERVICES */
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border)}
+.service-card{
+  background:var(--bg);padding:44px 36px;
+  transition:.3s;position:relative;overflow:hidden;
+}
+.service-card::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(201,168,76,0.05),transparent);
+  opacity:0;transition:.3s;
+}
+.service-card:hover{background:var(--bg3)}
+.service-card:hover::after{opacity:1}
+.service-icon{
+  width:48px;height:48px;
+  border:1px solid var(--border2);border-radius:4px;
+  display:flex;align-items:center;justify-content:center;
+  margin-bottom:28px;
+  font-size:1.3rem;color:var(--accent);
+}
+.service-card h3{
+  font-family:'Syne',sans-serif;font-weight:700;font-size:1.1rem;
+  margin-bottom:14px;letter-spacing:-0.01em;
+}
+.service-card p{color:var(--muted);font-size:.9rem;line-height:1.7}
+.service-price{
+  margin-top:24px;
+  font-size:.82rem;color:var(--accent);
+  font-weight:600;letter-spacing:.05em;
+}
 
-    .hero-img img{
-      width:310px;
-      height:325px;
-      object-fit:cover;
-      object-position:center 25%;
-      border-radius:50%;
-      position:relative;
-      z-index:2
-    }
+/* PROJECTS */
+.projects-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--border)}
+.project-card{
+  background:var(--bg);padding:44px;
+  display:flex;flex-direction:column;
+  transition:.3s;position:relative;
+  text-decoration:none;color:inherit;
+  overflow:hidden;
+}
+.project-card::before{
+  content:"";position:absolute;left:0;top:0;bottom:0;width:3px;
+  background:var(--accent);transform:scaleY(0);transform-origin:bottom;
+  transition:.4s cubic-bezier(.4,0,.2,1);
+}
+.project-card:hover{background:var(--bg3)}
+.project-card:hover::before{transform:scaleY(1)}
+.project-tag{
+  display:inline-block;
+  font-size:.72rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--accent);background:rgba(201,168,76,0.08);
+  border:1px solid rgba(201,168,76,0.2);
+  padding:5px 12px;border-radius:2px;margin-bottom:20px;
+}
+.project-card h3{
+  font-family:'Syne',sans-serif;font-weight:700;font-size:1.3rem;
+  margin-bottom:14px;letter-spacing:-0.01em;
+  transition:.2s;
+}
+.project-card:hover h3{color:var(--accent)}
+.project-card p{color:var(--muted);font-size:.92rem;line-height:1.75;flex:1}
+.project-tech{
+  display:flex;flex-wrap:wrap;gap:8px;
+  margin-top:28px;padding-top:24px;
+  border-top:1px solid var(--border);
+}
+.tech-tag{
+  font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--muted);background:var(--bg);
+  border:1px solid var(--border);
+  padding:4px 10px;border-radius:2px;
+  transition:.2s;
+}
+.project-card:hover .tech-tag{border-color:var(--border2);color:var(--text)}
+.project-arrow{
+  margin-top:20px;
+  font-size:.82rem;color:var(--accent);font-weight:600;
+  display:flex;align-items:center;gap:8px;
+  letter-spacing:.05em;text-transform:uppercase;
+}
 
-    .hero-img::before{
-      content:"";
-      position:absolute;
-      inset:-20px;
-      background:radial-gradient(circle,var(--orange),transparent 70%);
-      filter:blur(20px);
-      border-radius:50%
-    }
+/* FEATURED PROJECT */
+.project-featured{
+  grid-column:1/-1;
+  display:grid;grid-template-columns:1fr 1fr;gap:0;
+}
+.project-featured .project-info{padding:56px}
+.project-featured .project-visual{
+  background:var(--bg2);
+  border-left:1px solid var(--border);
+  display:flex;align-items:center;justify-content:center;
+  padding:40px;
+}
+.mockup-window{
+  width:100%;max-width:380px;
+  border:1px solid var(--border2);border-radius:8px;
+  overflow:hidden;background:var(--bg);
+}
+.mockup-bar{
+  height:32px;background:var(--bg3);
+  border-bottom:1px solid var(--border);
+  display:flex;align-items:center;padding:0 14px;gap:7px;
+}
+.mockup-dot{width:10px;height:10px;border-radius:50%}
+.mockup-url{
+  flex:1;margin-left:10px;height:16px;
+  background:var(--bg);border-radius:3px;
+  border:1px solid var(--border);
+  display:flex;align-items:center;padding:0 8px;
+}
+.mockup-url span{font-size:.65rem;color:var(--muted);letter-spacing:.03em}
+.mockup-content{padding:20px;display:flex;flex-direction:column;gap:10px}
+.mockup-row{height:10px;background:var(--border);border-radius:2px}
+.mockup-row.short{width:60%}
+.mockup-row.accent{background:rgba(201,168,76,0.3);width:45%}
+.mockup-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:4px}
+.mockup-block{height:60px;background:var(--bg2);border:1px solid var(--border);border-radius:4px}
 
-    .hero-socials{
-      margin-top:22px;
-      display:flex;
-      justify-content:center;
-      gap:18px
-    }
+/* ABOUT */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+.about-text p{color:var(--muted);font-size:1rem;line-height:1.9;margin-bottom:20px}
+.about-text p strong{color:var(--text)}
+.skills-list{display:flex;flex-direction:column;gap:16px}
+.skill-row{display:flex;flex-direction:column;gap:8px}
+.skill-label{
+  display:flex;justify-content:space-between;
+  font-size:.82rem;font-weight:500;letter-spacing:.05em;
+  color:var(--text);
+}
+.skill-pct{color:var(--accent);font-size:.78rem}
+.skill-bar{height:2px;background:var(--border);border-radius:1px}
+.skill-fill{height:100%;background:var(--accent);border-radius:1px;transition:width 1s ease}
+.badges{display:flex;flex-wrap:wrap;gap:10px;margin-top:40px}
+.badge{
+  font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;
+  border:1px solid var(--border2);
+  color:var(--muted);padding:8px 16px;border-radius:3px;
+  transition:.2s;
+}
+.badge:hover{border-color:var(--accent);color:var(--accent)}
 
-    .hero-socials a{
-      color:#fff;
-      font-size:1.35rem;
-      opacity:.75;
-      transition:.3s
-    }
+/* CONTACT */
+.contact-wrap{
+  max-width:700px;margin:0 auto;text-align:center;
+}
+.contact-wrap h2{
+  font-family:'Syne',sans-serif;font-size:clamp(2rem,5vw,3.5rem);
+  font-weight:800;line-height:1.1;letter-spacing:-0.02em;
+  margin-bottom:24px;
+}
+.contact-wrap p{color:var(--muted);font-size:1.05rem;margin-bottom:48px;line-height:1.8}
+.contact-options{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.contact-line{
+  width:100%;height:1px;background:var(--border);
+  margin:80px 0;
+}
+.contact-info{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
+  background:var(--border);
+  border:1px solid var(--border);
+}
+.contact-item{
+  background:var(--bg);padding:32px;
+  display:flex;flex-direction:column;gap:8px;
+}
+.contact-item-label{font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.12em}
+.contact-item-val{font-size:.95rem;font-weight:500;color:var(--text)}
 
-    .hero-socials a:hover{
-      color:var(--orange);
-      opacity:1
-    }
+/* FOOTER */
+footer{
+  padding:32px 6%;
+  border-top:1px solid var(--border);
+  display:flex;align-items:center;justify-content:space-between;
+}
+.footer-logo{
+  font-family:'Syne',sans-serif;font-weight:800;
+  color:var(--muted);font-size:.95rem;letter-spacing:.05em;
+  text-decoration:none;
+}
+.footer-right{font-size:.8rem;color:var(--border2)}
 
-    section{padding:90px 10%}
+/* SCROLL ANIMATION */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:none}
 
-    .title{
-      text-align:center;
-      font-size:2.4rem;
-      margin-bottom:60px
-    }
-
-    .title span{color:var(--orange)}
-
-    .services,.projects,.benefits{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-      gap:30px
-    }
-
-    .card{
-      background:#111;
-      padding:30px;
-      border-radius:20px;
-      transition:.3s
-    }
-
-    .card:hover{
-      transform:translateY(-8px);
-      box-shadow:var(--glow)
-    }
-
-    .card i{
-      font-size:1.9rem;
-      color:var(--orange);
-      margin-bottom:15px
-    }
-
-    .card img{
-      width:100%;
-      height:180px;
-      object-fit:cover;
-      border-radius:15px;
-      margin-bottom:15px
-    }
-
-    .card a{
-      color:var(--orange);
-      text-decoration:none;
-      font-weight:600
-    }
-
-    footer{
-      text-align:center;
-      padding:25px;
-      color:#777
-    }
-
-    @media(max-width:900px){
-      header{
-        flex-direction:column-reverse;
-        text-align:center;
-        padding:40px 6%
-      }
-      h1{font-size:2.2rem}
-      .hero-img img{width:240px;height:250px}
-      section{padding:60px 6%}
-    }
-  </style>
+/* MOBILE */
+@media(max-width:900px){
+  nav .nav-links{display:none}
+  .hero-grid{grid-template-columns:1fr;gap:48px;text-align:center}
+  .hero-desc{margin:0 auto 44px}
+  .hero-actions{justify-content:center}
+  .hero-stats{justify-content:center}
+  .avatar-wrap{width:260px;height:320px}
+  .services-grid{grid-template-columns:1fr}
+  .projects-grid{grid-template-columns:1fr}
+  .project-featured{grid-column:auto;grid-template-columns:1fr}
+  .project-featured .project-visual{display:none}
+  .about-grid{grid-template-columns:1fr}
+  .contact-info{grid-template-columns:1fr}
+  section{padding:70px 6%}
+}
+</style>
 </head>
-
 <body>
 
-<header>
-  <div>
-    <span style="color:#ff7a00;font-weight:600">
-      Desarrollo web para negocios
-    </span>
+<nav id="navbar">
+  <a href="#" class="nav-logo">JD.</a>
+  <ul class="nav-links">
+    <li><a href="#servicios">Servicios</a></li>
+    <li><a href="#proyectos">Proyectos</a></li>
+    <li><a href="#sobre-mi">Sobre mí</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+  </ul>
+  <a href="https://wa.me/573224636867" target="_blank" class="nav-cta">Cotizar</a>
+</nav>
 
-    <h1>Diseño páginas web profesionales y soluciones web</h1>
-
-    <p>
-      Desde páginas informativas claras y modernas,
-      hasta sistemas web más completos según las necesidades del negocio.<br><br>
-      Trabajo con negocios que quieren verse profesionales hoy
-      y tener la base para crecer mañana.
-    </p>
-
-    <a class="btn" href="https://wa.me/573224636867" target="_blank">
-      Cotizar mi página web
-    </a>
-
-    <p style="margin-top:18px;font-size:0.9rem;color:#aaa">
-      Respuesta rápida · Propuesta clara · Sin compromiso
-    </p>
-  </div>
-
-  <div class="hero-img">
-    <img src="images/" alt="Juan David Diaz Rodriguez">
-
-    <div class="hero-socials">
-      <a href="https://instagram.com/TU_INSTAGRAM" target="_blank" aria-label="Instagram">
-        <i class="fab fa-instagram"></i>
-      </a>
-      <a href="https://linkedin.com/in/TU_LINKEDIN" target="_blank" aria-label="LinkedIn">
-        <i class="fab fa-linkedin"></i>
-      </a>
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <div class="hero-bg-line"></div>
+  <div class="hero-bg-line2"></div>
+  <div class="hero-grid">
+    <div>
+      <div class="hero-eyebrow">Disponible para proyectos</div>
+      <h1>Desarrollo web<br/>que <span>genera</span><br/>resultados</h1>
+      <p class="hero-desc">Construyo plataformas web profesionales para negocios, conjuntos residenciales y emprendimientos. Desde landing pages hasta sistemas completos con panel administrativo.</p>
+      <div class="hero-actions">
+        <a href="https://wa.me/573224636867" target="_blank" class="btn-primary">
+          <i class="fab fa-whatsapp"></i> Cotizar proyecto
+        </a>
+        <a href="#proyectos" class="btn-outline">Ver proyectos →</a>
+      </div>
+      <div class="hero-stats">
+        <div>
+          <span class="stat-num">4+</span>
+          <span class="stat-label">Proyectos entregados</span>
+        </div>
+        <div>
+          <span class="stat-num">100%</span>
+          <span class="stat-label">Clientes satisfechos</span>
+        </div>
+        <div>
+          <span class="stat-num">2</span>
+          <span class="stat-label">Años de experiencia</span>
+        </div>
+      </div>
     </div>
-  </div>
-</header>
-
-</body>
-</html>
-
-
-<section>
-  <h2 class="title">¿Qué <span>hago</span>?</h2>
-
-  <div class="services">
-    <div class="card">
-      <i class="fas fa-globe"></i>
-      <h4>Páginas web profesionales</h4>
-      <p>Webs modernas, rápidas y optimizadas para celular.</p>
-    </div>
-
-    <div class="card">
-      <i class="fas fa-gear"></i>
-      <h4>Sistemas y automatización</h4>
-      <p>Reservas, formularios, paneles y procesos web a medida.</p>
-    </div>
-
-    <div class="card">
-      <i class="fas fa-code"></i>
-      <h4>Proyectos web funcionales</h4>
-      <p>Desarrollo de plataformas y sistemas según el caso.</p>
+    <div class="hero-visual">
+      <div class="avatar-wrap">
+        <div class="avatar-frame">
+          <div class="avatar-corner tl"></div>
+          <div class="avatar-corner tr"></div>
+          <div class="avatar-corner bl"></div>
+          <div class="avatar-corner br"></div>
+          <div class="avatar-initials">JD</div>
+          <div class="avatar-name">Juan David Díaz</div>
+          <div class="avatar-role">Desarrollador Web · Colombia</div>
+          <div style="display:flex;gap:16px;margin-top:8px">
+            <a href="https://instagram.com/TU_INSTAGRAM" target="_blank" style="color:var(--muted);font-size:1.1rem;transition:.2s" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--muted)'"><i class="fab fa-instagram"></i></a>
+            <a href="https://linkedin.com/in/juan-david-díaz-rodríguez-602a90247" target="_blank" style="color:var(--muted);font-size:1.1rem;transition:.2s" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--muted)'"><i class="fab fa-linkedin"></i></a>
+            <a href="https://wa.me/573224636867" target="_blank" style="color:var(--muted);font-size:1.1rem;transition:.2s" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--muted)'"><i class="fab fa-whatsapp"></i></a>
+          </div>
+          <div class="avatar-hint">← Reemplazar con tu foto</div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<section>
-  <h2 class="title">¿Por qué <span>trabajar conmigo</span>?</h2>
-
-  <div class="benefits">
-    <div class="card">
-      <i class="fas fa-bolt"></i>
-      <h4>Enfoque en resultados</h4>
-      <p>Webs pensadas para generar contacto y clientes.</p>
+<!-- SERVICIOS -->
+<section id="servicios">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="section-label">Servicios</div>
+      <div class="section-title">¿Qué puedo<br/>construir para ti?</div>
     </div>
-
-    <div class="card">
-      <i class="fas fa-mobile-screen-button"></i>
-      <h4>Diseño adaptable</h4>
-      <p>Tu web se verá bien en celular, tablet y computador.</p>
-    </div>
-
-    <div class="card">
-      <i class="fas fa-comments"></i>
-      <h4>Comunicación clara</h4>
-      <p>Sin tecnicismos innecesarios ni procesos confusos.</p>
+    <div class="services-grid reveal">
+      <div class="service-card">
+        <div class="service-icon"><i class="fas fa-globe"></i></div>
+        <h3>Páginas web profesionales</h3>
+        <p>Sitios modernos, rápidos y optimizados para celular. Diseño a medida que transmite credibilidad y genera contactos.</p>
+        <div class="service-price">Desde $500.000 COP</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><i class="fas fa-building"></i></div>
+        <h3>Plataformas para conjuntos</h3>
+        <p>Sistemas completos con reservas, noticias, documentos, clasificados, formularios y panel administrativo propio.</p>
+        <div class="service-price">Desde $3.000.000 COP</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><i class="fas fa-gear"></i></div>
+        <h3>Sistemas a medida</h3>
+        <p>CRM, paneles de gestión, automatizaciones y soluciones web personalizadas según las necesidades del negocio.</p>
+        <div class="service-price">Cotización personalizada</div>
+      </div>
     </div>
   </div>
 </section>
 
-<section>
-  <h2 class="title">Mis <span>Proyectos</span></h2>
-
-  <div class="projects">
-
-    <div class="card">
-      <img src="images/Empanadas.png" alt="Empanadas Artesanales">
-      <h4>Empanadas Artesanales</h4>
-      <p>Página web para negocio gastronómico enfocada en pedidos por WhatsApp.</p>
-      <a href="https://empanada-silk.vercel.app/" target="_blank">Ver proyecto →</a>
+<!-- PROYECTOS -->
+<section id="proyectos">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="section-label">Proyectos</div>
+      <div class="section-title">Trabajo real,<br/>resultados reales</div>
     </div>
 
-    <div class="card">
-      <img src="images/Conjunto.png" alt="Conjunto Residencial Nogal">
-      <h4>Conjunto Residencial Nogal</h4>
-      <p>Web informativa con sistema de reservas automatizado.</p>
-      <a href="https://conjuntonogalhfr.com/" target="_blank">Ver proyecto →</a>
-    </div>
+    <div class="projects-grid reveal">
 
-    <div class="card">
-      <img src="images/CRM.png" alt="CRM de clientes">
-      <h4>CRM de clientes</h4>
-      <p>Sistema web para gestión y seguimiento de clientes.</p>
-      <a href="https://crm-frontend-peach-psi.vercel.app/clientes" target="_blank">Ver proyecto →</a>
-    </div>
+      <!-- FEATURED -->
+      <div class="project-card project-featured" style="background:var(--bg)">
+        <div class="project-info">
+          <div class="project-tag">Proyecto destacado</div>
+          <h3>Conjunto Residencial Nogal</h3>
+          <p>Plataforma web completa para administración residencial. Incluye sistema de reservas en tiempo real para 6 zonas comunes, gestión de noticias y documentos, clasificados internos, 6 tipos de formularios y panel administrativo con dashboard en tiempo real.</p>
+          <div class="project-tech">
+            <span class="tech-tag">React</span>
+            <span class="tech-tag">Node.js</span>
+            <span class="tech-tag">MongoDB</span>
+            <span class="tech-tag">Cloudinary</span>
+            <span class="tech-tag">JWT</span>
+            <span class="tech-tag">Express</span>
+          </div>
+          <a href="https://conjuntonogalhfr.com/" target="_blank" class="project-arrow">
+            Ver proyecto <i class="fas fa-arrow-right" style="font-size:.8rem"></i>
+          </a>
+        </div>
+        <div class="project-visual">
+          <div class="mockup-window">
+            <div class="mockup-bar">
+              <div class="mockup-dot" style="background:#ff5f57"></div>
+              <div class="mockup-dot" style="background:#febc2e"></div>
+              <div class="mockup-dot" style="background:#28c840"></div>
+              <div class="mockup-url"><span>conjuntonogalhfr.com</span></div>
+            </div>
+            <div class="mockup-content">
+              <div class="mockup-row accent"></div>
+              <div class="mockup-row"></div>
+              <div class="mockup-row short"></div>
+              <div class="mockup-grid">
+                <div class="mockup-block"></div>
+                <div class="mockup-block"></div>
+                <div class="mockup-block"></div>
+              </div>
+              <div class="mockup-row" style="margin-top:4px"></div>
+              <div class="mockup-row short"></div>
+              <div class="mockup-grid">
+                <div class="mockup-block" style="height:45px"></div>
+                <div class="mockup-block" style="height:45px"></div>
+                <div class="mockup-block" style="height:45px"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
-    <div class="card">
-      <img src="images/LogiPlanner.png" alt="LogiPlanner">
-      <h4>LogiPlanner</h4>
-      <p>Plataforma web para planificación logística.</p>
-      <a href="https://proyecto-logiplanner-production.up.railway.app/index.php" target="_blank">Ver proyecto →</a>
-    </div>
+      <div class="project-card" style="text-decoration:none" onclick="window.open('https://empanada-silk.vercel.app/','_blank')">
+        <div class="project-tag">E-commerce local</div>
+        <h3>Empanadas Artesanales</h3>
+        <p>Página web para negocio gastronómico enfocada en conversión y pedidos directos por WhatsApp. Menú visual, ubicación y llamadas a la acción.</p>
+        <div class="project-tech">
+          <span class="tech-tag">HTML</span>
+          <span class="tech-tag">CSS</span>
+          <span class="tech-tag">JavaScript</span>
+        </div>
+        <div class="project-arrow">Ver proyecto <i class="fas fa-arrow-right" style="font-size:.8rem"></i></div>
+      </div>
 
+      <div class="project-card" onclick="window.open('https://crm-frontend-peach-psi.vercel.app/clientes','_blank')">
+        <div class="project-tag">Sistema de gestión</div>
+        <h3>CRM de clientes</h3>
+        <p>Sistema web para gestión y seguimiento de clientes. Registro, historial, estados y panel de control completo.</p>
+        <div class="project-tech">
+          <span class="tech-tag">React</span>
+          <span class="tech-tag">Node.js</span>
+          <span class="tech-tag">MongoDB</span>
+        </div>
+        <div class="project-arrow">Ver proyecto <i class="fas fa-arrow-right" style="font-size:.8rem"></i></div>
+      </div>
+
+      <div class="project-card" onclick="window.open('https://proyecto-logiplanner-production.up.railway.app/index.php','_blank')">
+        <div class="project-tag">Plataforma logística</div>
+        <h3>LogiPlanner</h3>
+        <p>Plataforma web para planificación y gestión logística. Rutas, inventarios y seguimiento en tiempo real.</p>
+        <div class="project-tech">
+          <span class="tech-tag">PHP</span>
+          <span class="tech-tag">MySQL</span>
+          <span class="tech-tag">Railway</span>
+        </div>
+        <div class="project-arrow">Ver proyecto <i class="fas fa-arrow-right" style="font-size:.8rem"></i></div>
+      </div>
+
+    </div>
   </div>
 </section>
 
-<section style="text-align:center">
-  <h2 class="title">¿Hablamos?</h2>
-  <p>Cuéntame tu negocio y te propongo una solución clara y acorde a lo que necesitas.</p>
-  <a class="btn" href="https://wa.me/573224636867" target="_blank">
-    Escribirme ahora
-  </a>
+<!-- SOBRE MÍ -->
+<section id="sobre-mi">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="section-label">Sobre mí</div>
+      <div class="section-title">Técnico en software<br/>+ economista en formación</div>
+    </div>
+    <div class="about-grid reveal">
+      <div class="about-text">
+        <p>Soy <strong>Juan David Díaz</strong>, tecnólogo en Análisis y Desarrollo de Software del SENA y estudiante de Economía en la Universidad Militar Nueva Granada. Estoy basado en Cajicá, Cundinamarca.</p>
+        <p>Combino mi formación técnica con el pensamiento analítico de la economía para construir soluciones web que no solo se ven bien, sino que <strong>resuelven problemas reales</strong> de negocios y comunidades.</p>
+        <p>Me especializo en proyectos para <strong>conjuntos residenciales, pequeñas empresas y emprendimientos</strong> que quieren una presencia web profesional sin pagar precios de agencia.</p>
+        <div class="badges">
+          <span class="badge">React + Vite</span>
+          <span class="badge">Node.js + Express</span>
+          <span class="badge">MongoDB</span>
+          <span class="badge">Cloudinary</span>
+          <span class="badge">JWT Auth</span>
+          <span class="badge">Netlify · Render</span>
+          <span class="badge">Git + GitHub</span>
+          <span class="badge">Tailwind CSS</span>
+        </div>
+      </div>
+      <div class="skills-list">
+        <div class="skill-row">
+          <div class="skill-label"><span>Frontend (React / HTML / CSS)</span><span class="skill-pct">90%</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-label"><span>Backend (Node.js / Express)</span><span class="skill-pct">82%</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:82%"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-label"><span>Bases de datos (MongoDB)</span><span class="skill-pct">78%</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:78%"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-label"><span>Deploy y hosting</span><span class="skill-pct">85%</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-label"><span>Diseño UI/UX</span><span class="skill-pct">75%</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:75%"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section id="contacto" style="background:var(--bg2)">
+  <div class="section-inner">
+    <div class="contact-wrap reveal">
+      <div class="section-label" style="justify-content:center">Contacto</div>
+      <h2>¿Tienes un proyecto<br/>en mente?</h2>
+      <p>Cuéntame tu idea y te propongo una solución clara, con presupuesto real y tiempos definidos. Sin compromisos.</p>
+      <div class="contact-options">
+        <a href="https://wa.me/573224636867" target="_blank" class="btn-primary">
+          <i class="fab fa-whatsapp"></i> Escribir por WhatsApp
+        </a>
+        <a href="mailto:juandaviddr322@gmail.com" class="btn-outline">
+          <i class="fas fa-envelope"></i> Enviar correo
+        </a>
+      </div>
+    </div>
+    <div class="contact-line"></div>
+    <div class="contact-info reveal">
+      <div class="contact-item">
+        <span class="contact-item-label"><i class="fas fa-map-marker-alt"></i> Ubicación</span>
+        <span class="contact-item-val">Cajicá, Cundinamarca · Colombia</span>
+      </div>
+      <div class="contact-item">
+        <span class="contact-item-label"><i class="fab fa-whatsapp"></i> WhatsApp</span>
+        <span class="contact-item-val">+57 322 463 6867</span>
+      </div>
+      <div class="contact-item">
+        <span class="contact-item-label"><i class="fas fa-clock"></i> Disponibilidad</span>
+        <span class="contact-item-val">Lunes a sábado · Respuesta &lt; 2 horas</span>
+      </div>
+    </div>
+  </div>
 </section>
 
 <footer>
-  © 2026 · Juan David Diaz · Web & Automatización
+  <a href="#inicio" class="footer-logo">Juan David Díaz · Desarrollo Web</a>
+  <span class="footer-right">© 2026</span>
 </footer>
 
+<script>
+const nav = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 40);
+});
+
+const reveals = document.querySelectorAll('.reveal');
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); }
+  });
+}, {threshold:0.1, rootMargin:'0px 0px -60px 0px'});
+reveals.forEach(r => obs.observe(r));
+
+document.querySelectorAll('.project-card').forEach(c => {
+  c.style.cursor = 'pointer';
+});
+</script>
 </body>
 </html>
